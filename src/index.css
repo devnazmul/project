@@ -187,3 +187,43 @@ html {
   border: 1px solid #dfdada;
   border-radius: 0px 30px 30px 0px;
 }
+/* ===================================== MEMBERSHIP ============================== */
+.heroGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.291) 0%,
+      rgba(255, 255, 255, 0.157) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(20px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 30px;
+}
+.palnGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 30px;
+}
+.planCardHead {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
