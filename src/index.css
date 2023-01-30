@@ -1,13 +1,176 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+html {
+  font-family: "Poppins", sans-serif;
+}
+.newMorf {
+  padding: 5px 20px;
+  left: 1189px;
+  top: 78px;
+  font-weight: 700;
+  background: #dfdada;
+  box-shadow: -2px -2px 8px rgba(255, 255, 255, 0.75),
+    -2px -2px 8px rgba(255, 255, 255, 0.75),
+    8px 8px 12px rgba(127, 127, 127, 0.25),
+    4px 4px 4px rgba(127, 127, 127, 0.75);
+  border-radius: 10px;
+}
+.newMorfPurple {
+  background: #990195;
+  box-shadow: -6px -7px 7px rgba(231, 24, 224, 0.25), -2px -2px 2px #aa00a6,
+    1px 1px 2px rgba(0, 0, 0, 0.25), 5px 5px 7px rgba(0, 0, 0, 0.25),
+    inset -4px -4px 16px rgba(121, 2, 118, 0.5),
+    inset 4px 3px 16px rgba(189, 0, 183, 0.25);
+  border-radius: 10px;
+}
+.serviceCard {
+  background: radial-gradient(
+      100% 100% at 0% 9.33%,
+      rgba(255, 255, 255, 0.6) 0%,
+      rgba(255, 255, 255, 0.18) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+.heroFormGlassDiv {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
+}
+.formGlassInput {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.1) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
+    inset 4px 4px 10px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 20px;
+}
+.mobileSectionGlass {
+  background: linear-gradient(
+      311.99deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 56.66%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border: 3px solid;
+  border-image-source: linear-gradient(
+    171.23deg,
+    #ffffff 1.93%,
+    rgba(255, 255, 255, 0) 104.85%
+  );
+  border-radius: 20px;
+}
+.serviceMobileSecGleass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+
+  border-radius: 30px;
+}
+.appServiceSecLeftCard {
+  border-radius: 30px;
+  border: 2px solid transparent;
+  border-image-source: linear-gradient(120deg, #ffffff, #ffffff, #ffffff00);
+  border-image-slice: 1;
+}
+.benifitSectionCardGlass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.12) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+.testimonialGlass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  opacity: 0.8;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+.userNav {
+  background: rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(200px);
+  -webkit-backdrop-filter: blur(200px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.735);
+}
+.userNavLink {
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* =================================== ABOUT ====================================  */
+.aboutHeroGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid rgba(255, 255, 255, 0.867);
+  border-radius: 30px;
+}
+.aboutMissionGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid rgba(255, 255, 255, 0.867);
+  border-radius: 30px;
+}
+.aboutOurTeamGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+  border: 1px solid #dfdada;
+  border-radius: 0px 30px 30px 0px;
 }
