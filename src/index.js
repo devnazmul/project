@@ -10,6 +10,7 @@ import Career from './pages/Career';
 import Contact from './pages/Contact';
 import Franchise from './pages/Franchise';
 import Home from './pages/Home';
+import Membership from './pages/Membership';
 import Partners from './pages/Partners';
 import reportWebVitals from './reportWebVitals';
 
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/membership",
+        element: <Membership />,
       },
       {
         path: "/partners",

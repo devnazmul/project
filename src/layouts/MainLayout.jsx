@@ -23,7 +23,7 @@ export default function MainLayout() {
   };
 
   return (
-    <div className="bg-gradient-to-l from-[#B8EBF4] to-[#D1A7C2] py-10 px-10">
+    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] py-10 px-10">
       <div className="backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full  text-slate-200 relative">
         <img
           className="absolute top-[150px] w-[290px] -z-10"
@@ -146,6 +146,25 @@ export default function MainLayout() {
                         ) : (
                           <span className=" flex flex-col justify-center items-center">
                             About
+                            <span className="block bg-transparent w-7 h-[3px] -bottom-[6px]"></span>
+                          </span>
+                        )}
+                      </>
+                    )}
+                  </NavLink>
+                </li>
+                <li className="mr-5">
+                  <NavLink to={`/membership`}>
+                    {({ isActive }) => (
+                      <>
+                        {isActive ? (
+                          <span className=" relative flex flex-col text-primaryPurple font-semibold justify-center items-center">
+                            Membership
+                            <span className="absolute block bg-primaryPurple w-7 h-[3px] -bottom-[6px]"></span>
+                          </span>
+                        ) : (
+                          <span className=" flex flex-col justify-center items-center">
+                            Membership
                             <span className="block bg-transparent w-7 h-[3px] -bottom-[6px]"></span>
                           </span>
                         )}
