@@ -1,5 +1,9 @@
 import React from "react";
+import ContactHeroSec from "../components/ContactHeroSec/ContactHeroSec";
 
 export default function Contact() {
-  return <div>Contact</div>;
+  return <div>
+    <ContactHeroSec />
+  </div>;
 }
+        
