@@ -12,8 +12,8 @@ export default function AboutHeroSec() {
         />
       </div>
       <div className="aboutHeroGlass w-7/12 py-10 pl-20 pr-32">
-        <h1 className="text-[100px] leading-none font-bold">
-          About <br /> <span className="text-primaryPurple">Us</span>{" "}
+        <h1 className="text-[90px] leading-none font-bold">
+          About <span className="text-primaryPurple">Us</span>{" "}
         </h1>
         <h2 className="text-primaryPurple text-4xl font-semibold my-5">
           Welcome at
