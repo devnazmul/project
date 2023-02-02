@@ -1,16 +1,41 @@
-import { useRouteError } from "react-router-dom";
+import { NavLink, useRouteError } from "react-router-dom";
+import LeftBottomImage from "./assets/404-bottom-left-elements.svg";
+import RightBottomImage from "./assets/404-bottom-right.svg";
+import notfoundImage from "./assets/404.svg";
 
 export default function ErrorPage() {
   const error = useRouteError();
   console.error(error);
 
   return (
-    <div id="error-page">
-      <h1>404</h1>
-      <p>Oops... the page is not found.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+    <div
+      id="error-page"
+      className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] py-10 px-10 h-screen flex justify-center items-center"
+    >
+      <div className="z-50 relative backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full  text-slate-200  h-[500px]">
+        <img
+          className="absolute bottom-0 left-0 w-[200px] lg:w-[400px] -z-30"
+          src={LeftBottomImage}
+          alt=""
+        />
+        <img
+          className="absolute bottom-0 right-0 w-[200px] lg:w-[400px] -z-30"
+          src={RightBottomImage}
+          alt=""
+        />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2  flex justify-center flex-col items-center ">
+          <img src={notfoundImage} alt="not found" />
+          <h1 className="text-2xl md:text-5xl text-primaryPurple font-semibold my-5 text-center ">
+            Page not found.
+          </h1>
+          <p className="text-black mb-5 text-sm text-center">
+            Sorry we can’t find the page you’re looking for...
+          </p>
+          <NavLink className={`text-black border-b-2 border-black text-sm lg:text-lg hover:text-primaryPurple transition-all duration-150 hover:border-primaryPurple`} to={"/"}>
+            Back to home
+          </NavLink>
+        </div>
+      </div>
     </div>
   );
 }
