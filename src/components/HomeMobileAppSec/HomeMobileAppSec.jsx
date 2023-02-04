@@ -58,7 +58,9 @@ export default function HomeMobileAppSec() {
         className="
       mobileSectionGlass 
       md:w-10/12 
-      px-5 py-5 
+      px-2
+      py-5 
+      sm:px-5 
       md:px-5 
       md:py-5 
       lg:py-[80px] 
@@ -89,11 +91,12 @@ export default function HomeMobileAppSec() {
           engine care, engine repair, genuine spare parts, and much more done at
           affordable prices in India.
         </p>
-        <div className="flex justify-center items-center mb-10">
+        <div className="flex justify-center items-center mb-10 px-5">
           <img
             className="
-            w-[110px] 
+            w-[100px] 
             mx-2 
+            sm:w-[110px]
             md:w-[120px] 
             lg:w-[150px] 
             xl:w-[200px] "
@@ -102,8 +105,9 @@ export default function HomeMobileAppSec() {
           />
           <img
             className="
-            w-[110px] 
+            w-[100px] 
             mx-2 
+            sm:w-[110px]
             md:w-[120px] 
             lg:w-[150px] 
             xl:w-[200px] "

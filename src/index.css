@@ -39,6 +39,8 @@ html {
 }
 /* ===========================GRADIENT ============================  */
 
+/* ==================== LAYOUT ==========================  */
+
 /* =========================== HERO ==============================  */
 .heroFormGlassDiv {
   background: linear-gradient(
@@ -50,7 +52,8 @@ html {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
   /* Note: backdrop-filter has minimal browser support */
-
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
   border-radius: 20px;
 }
 .formGlassInput {
@@ -252,5 +255,42 @@ html {
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
+}
+/* ================================ PARTNER ================================  */
+.partnerMarketPotential {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid #fff;
+}
+.partnerAfterSaleSupGlassCard {
+  background: linear-gradient(
+    118.39deg,
+    rgba(255, 255, 255, 0.27) 1.28%,
+    rgba(10, 9, 35, 0) 106.47%
+  );
+
+  filter: drop-shadow(30px 10px 150px rgba(215, 215, 215, 0.5));
+  backdrop-filter: blur(50px);
+  border-radius: 30px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+.USPSGlass {
+  background: linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(2px);
   /* Note: backdrop-filter has minimal browser support */
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+  border-radius: 10px;
 }

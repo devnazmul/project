@@ -4,9 +4,13 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { IoLogOutOutline } from "react-icons/io5";
 import { RiWhatsappFill } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
+// import leftBgElement from "../assets/blobanimation-1.svg";
 import leftBgElement from "../assets/001.svg";
 import rightBgElement from "../assets/002.svg";
-import rightBgBallElement from "../assets/003.svg";
+
+// import rightBgBallElement from "../assets/003.svg";
+import rightBgBallElement from "../assets/blobanimation.svg";
+
 import GradientBorder from "../components/Borders/GradientBorder";
 import TransparentBgButton from "../components/Buttons/TransparentBgButton";
 import WhiteNewmorfButton from "../components/Buttons/WhiteNewmorfButton";
@@ -30,8 +34,8 @@ export default function MainLayout() {
   };
 
   return (
-    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2]  px-5 py-5 md:px-10 md:py-10">
-      <div className="backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full  text-slate-200 relative">
+    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] px-5 py-5 md:px-10 md:py-10">
+      <div className=" backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full  text-slate-200 relative">
         <img
           className="absolute top-[150px] w-[290px] -z-10"
           src={leftBgElement}
