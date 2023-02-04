@@ -12,7 +12,7 @@ html {
   left: 1189px;
   top: 78px;
   font-weight: 700;
-  background: #dfdada;
+  background: #ededed;
   box-shadow: -2px -2px 8px rgba(255, 255, 255, 0.75),
     -2px -2px 8px rgba(255, 255, 255, 0.75),
     8px 8px 12px rgba(127, 127, 127, 0.25),
@@ -239,6 +239,18 @@ html {
     ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(15px);
+  /* Note: backdrop-filter has minimal browser support */
+}
+/* ================================ CEREER ===================================  */
+.jobCardGlass {
+  background: linear-gradient(
+      155.31deg,
+      rgba(255, 255, 255, 0.2) 0%,
+      rgba(255, 255, 255, 0) 74.7%
+    ),
+    rgba(255, 255, 255, 0.05);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
   /* Note: backdrop-filter has minimal browser support */
 }

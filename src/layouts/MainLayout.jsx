@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiFillInstagram } from "react-icons/ai";
 import { FaFacebookSquare } from "react-icons/fa";
+import { IoLogOutOutline } from "react-icons/io5";
 import { RiWhatsappFill } from "react-icons/ri";
 import { NavLink, Outlet } from "react-router-dom";
 import leftBgElement from "../assets/001.svg";
@@ -14,6 +15,8 @@ export default function MainLayout() {
   const [isLogin, setIsLogin] = useState(false);
   const [isNavOpened, setIsNavOpened] = useState(false);
 
+  const [responsiveTogleIsOpened, setResponsiveTogleIsOpened] = useState(false);
+
   const handleLogin = () => {
     setIsLogin(true);
   };
@@ -22,8 +25,12 @@ export default function MainLayout() {
     setIsLogin(false);
   };
 
+  const handleResponsiveToggleNav = () => {
+    setResponsiveTogleIsOpened(!responsiveTogleIsOpened);
+  };
+
   return (
-    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] py-10 px-10">
+    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2]  px-5 py-5 md:px-10 md:py-10">
       <div className="backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full  text-slate-200 relative">
         <img
           className="absolute top-[150px] w-[290px] -z-10"
@@ -40,25 +47,182 @@ export default function MainLayout() {
           src={rightBgElement}
           alt=""
         />
+
         <div className="">
           {/* HEADER  */}
-          <header className="h-[121px] flex flex-col align-middle justify-between py-5 px-36">
+          <header className="md:h-[121px] flex flex-col align-middle justify-between py-5 px-5 xl:px-36">
             {/* BRANDING  */}
             <div className="flex justify-between items-center text-black">
               {/* LOGO  */}
-              <span className="text-[#000000] font-poppins font-semibold text-[36px] tracking-[0.3px]">
+              <span className="text-[#000000] font-poppins font-semibold text-xl sm:text-[28px] md:text-[36px] tracking-[0.3px]">
                 <span className="text-[#AC262C]">Bike</span>Fixup
               </span>
               {/* CONTACT NUMBER  */}
-              <span>+91-11-1111-1111 / www.bikefixup.in</span>
+              <span className="hidden lg:block">
+                +91-11-1111-1111 / www.bikefixup.in
+              </span>
               {/* BUTTONS  */}
+              <div className="block md:hidden relative">
+                {/* BURGER ICON START  */}
+                <button onClick={handleResponsiveToggleNav}>
+                  <span
+                    className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
+                      responsiveTogleIsOpened
+                        ? "rotate-45 translate-y-3"
+                        : "rotate-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
+                      responsiveTogleIsOpened
+                        ? "translate-x-96"
+                        : "translate-x-0"
+                    }`}
+                  ></span>
+                  <span
+                    className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
+                      responsiveTogleIsOpened
+                        ? "-rotate-45 -translate-y-3"
+                        : "rotate-0"
+                    }`}
+                  ></span>
+                </button>
+                {/* BURGER ICON END  */}
+
+                {/* RESPONSIVE NAV START  */}
+                <div
+                  className={`${
+                    responsiveTogleIsOpened ? "right-0" : "-right-96"
+                  } transition-all duration-300 responsiveNav absolute bg-white  w-64 top-10 px-5 py-5 rounded-lg shadow-lg z-[100] flex flex-col`}
+                >
+                  <div className="w-full mb-6">
+                    {!isLogin ? (
+                      <div className="flex justify-around items-center">
+                        <TransparentBgButton title={"Sign Up"} />
+                        <WhiteNewmorfButton
+                          handler={handleLogin}
+                          title={"Login"}
+                        />
+                      </div>
+                    ) : (
+                      <div className="w-full flex justify-between">
+                        <button
+                          onClick={() => {
+                            setIsNavOpened(!isNavOpened);
+                          }}
+                          className={`w-auto h-10 flex items-center`}
+                        >
+                          <span className="flex justify-center items-center w-10 h-10 rounded-full bg-cyan-800 text-xl text-white">
+                            D
+                          </span>
+                          <span className="text-sm ml-2">Md Nazmul Islam</span>
+                        </button>
+                        <button onClick={()=>setIsLogin(false)}><IoLogOutOutline className="text-primaryRed text-2xl" /></button>
+                      </div>
+                    )}
+                  </div>
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/`}
+                  >
+                    Home
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/about`}
+                  >
+                    About
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/partners`}
+                  >
+                    Partners
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/franchise`}
+                  >
+                    Franchise
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/career`}
+                  >
+                    Career
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/blog`}
+                  >
+                    Blog
+                  </NavLink>
+
+                  <NavLink
+                    className={(navData) =>
+                      `py-2 hover:shadow-lg ${
+                        navData.isActive
+                          ? " bg-[#84E8FA] text-black"
+                          : "bg-[#fff] text-black"
+                      } hover:bg-[#F492D3] hover:text-white rounded-lg px-5 border hover:translate-x-2 transition-all duration-150 border-white hover:border`
+                    }
+                    to={`/contact`}
+                  >
+                    Contact
+                  </NavLink>
+                </div>
+
+                {/* RESPONSIVE NAV END  */}
+              </div>
+
               {!isLogin ? (
-                <div>
+                <div className="hidden md:block">
                   <TransparentBgButton title={"Sign Up"} />
                   <WhiteNewmorfButton handler={handleLogin} title={"Login"} />
                 </div>
               ) : (
-                <div className="relative">
+                <div className="relative hidden md:block">
                   <button
                     onClick={() => {
                       setIsNavOpened(!isNavOpened);
@@ -113,7 +277,7 @@ export default function MainLayout() {
             </div>
 
             {/* NAV LINKS  */}
-            <nav className="text-black">
+            <nav className="text-black hidden md:block">
               <ul className="flex font-[20px]">
                 <li className="mr-5">
                   <NavLink to={`/`}>
@@ -276,9 +440,9 @@ export default function MainLayout() {
           <Outlet />
         </div>
 
-        <footer className="w-full bg-white h-[120px] flex px-36 justify-between items-center">
+        <footer className="w-full bg-white h-[120px] flex px-5 xl:px-36 justify-between items-center">
           <span className="text-black font-[16px]">www.bikefixup.in</span>
-          <span className="text-black flex justify-between items-center w-2/12">
+          <span className="text-black flex justify-between items-center w-[100px] md:w-2/12">
             <a href="https://google.com">
               <FaFacebookSquare className="text-[30px]" />
             </a>
