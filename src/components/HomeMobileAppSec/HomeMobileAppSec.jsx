@@ -186,7 +186,7 @@ export default function HomeMobileAppSec() {
           pl-5 
           lg:pl-8"
           >
-            <h4
+            <p
               className="
             text-black 
             textt-sm lg:text-[20px] 
@@ -194,7 +194,7 @@ export default function HomeMobileAppSec() {
             lg:font-semibold"
             >
               SCAN QR CODE TO DOWNLOAD
-            </h4>
+            </p>
             <p
               className="
             text-black 

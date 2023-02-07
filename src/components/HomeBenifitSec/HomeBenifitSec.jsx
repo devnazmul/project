@@ -13,8 +13,8 @@ export default function HomeBenifitSec() {
             <img className="hidden lg:block absolute -top-20 w-[250px]" src={benifitImage1} alt="" />
         </div> */}
         <div className="text-center lg:mt-5 z-30 w-full ">
-            <h2 className="font-semibold text-2xl">Free Text Benefits</h2>
-            <h5 className="font-medium text-xl"><span className="text-white">Rs.100</span> off services for first time</h5>
+            <p className="font-semibold text-2xl">Free Text Benefits</p>
+            <p className="font-medium text-xl"><span className="text-white">Rs.100</span> off services for first time</p>
             <h2 className="font-semibold text-4xl text-primaryPurple">Get your bike serviced</h2>
         </div>
       </div>
