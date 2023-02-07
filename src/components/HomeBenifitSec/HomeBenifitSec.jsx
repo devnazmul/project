@@ -19,7 +19,7 @@ export default function HomeBenifitSec() {
         </div>
       </div>
       <div className="mt-10 lg:mt-20">
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <BenifitCard img={benifitImage3} highlightText='10 days Free Service Guarantee' text={'10 days Unconditioned Warranty'} />
             <BenifitCard img={benifitImage2} highlightText='Free Pickup & Drop service' text={'Real time service'} />
             <BenifitCard img={benifitImage4} highlightText='Transparent & Competitive Pricing' text={'ave upto 40% on your bike service'} />

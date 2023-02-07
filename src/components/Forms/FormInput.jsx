@@ -26,7 +26,7 @@ export default function FormInput({
           {label && <label className="font-semibold text-sm" htmlFor={name}>{label}</label>}
           <input
             type={type}
-            className={`formGlassInput ${extra_class}`}
+            className={`formGlassInput ${extra_class} `}
             placeholder={placeholder}
             name={name}
           />
