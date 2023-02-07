@@ -33,7 +33,7 @@ export default function ProfileInfo({setIsEdit}) {
           Address : <br /> 1/128 Riverside, Mawathura, Gampola
         </span>
       </div>
-      <button onClick={()=>{setIsEdit({state:true,id:''})}} className="border-b border-dashed border-black text-black absolute bottom-7 right-10">
+      <button  title={"edit profile"} onClick={()=>{setIsEdit({state:true,id:''})}} className="border-b border-dashed border-black text-black absolute bottom-7 right-10">
         Edit Profile
       </button>
     </>

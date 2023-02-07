@@ -68,7 +68,7 @@ export default function MainLayout() {
               {/* BUTTONS  */}
               <div className="block md:hidden relative">
                 {/* BURGER ICON START  */}
-                <button onClick={handleResponsiveToggleNav}>
+                <button title={"menu icon"} onClick={handleResponsiveToggleNav}>
                   <span
                     className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
                       responsiveTogleIsOpened
@@ -111,6 +111,7 @@ export default function MainLayout() {
                     ) : (
                       <div className="w-full flex justify-between">
                         <button
+                          title={"user profile"}
                           onClick={() => {
                             setIsNavOpened(!isNavOpened);
                           }}
@@ -121,11 +122,17 @@ export default function MainLayout() {
                           </span>
                           <span className="text-sm ml-2">Md Nazmul Islam</span>
                         </button>
-                        <button onClick={()=>setIsLogin(false)}><IoLogOutOutline className="text-primaryRed text-2xl" /></button>
+                        <button
+                          title={"logout"}
+                          onClick={() => setIsLogin(false)}
+                        >
+                          <IoLogOutOutline className="text-primaryRed text-2xl" />
+                        </button>
                       </div>
                     )}
                   </div>
                   <NavLink
+                    title="Home"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -139,6 +146,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="About"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -152,6 +160,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="Partners"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -165,6 +174,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="Franchise"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -178,6 +188,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="Career"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -191,6 +202,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="Blog"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -204,6 +216,7 @@ export default function MainLayout() {
                   </NavLink>
 
                   <NavLink
+                    title="Contact"
                     className={(navData) =>
                       `py-2 hover:shadow-lg ${
                         navData.isActive
@@ -228,6 +241,7 @@ export default function MainLayout() {
               ) : (
                 <div className="relative hidden md:block">
                   <button
+                    title={`profile`}
                     onClick={() => {
                       setIsNavOpened(!isNavOpened);
                     }}
@@ -241,24 +255,28 @@ export default function MainLayout() {
                       <ul>
                         <li>
                           <NavLink
+                            title="Profile"
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
                             to={"/profile/dashboard"}
                           >
                             Profile
                           </NavLink>
                           <NavLink
+                            title="My Booking"
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
                             to={"/profile/my_bookings"}
                           >
                             My Booking
                           </NavLink>
                           <NavLink
+                            title="My Vehicles"
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
                             to={"/profile/my_vehicles"}
                           >
                             My Vehicles
                           </NavLink>
                           <NavLink
+                            title="Become Partner"
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
                             to={"/profile/become_partner"}
                           >
@@ -266,6 +284,7 @@ export default function MainLayout() {
                           </NavLink>
                           <div>
                             <button
+                              title={`logout`}
                               onClick={handleLogout}
                               className="px-7 py-3 w-full userNavLink block font-semibold text-right text-primaryPurple"
                             >
@@ -284,7 +303,7 @@ export default function MainLayout() {
             <nav className="text-black hidden md:block">
               <ul className="flex font-[20px]">
                 <li className="mr-5">
-                  <NavLink to={`/`}>
+                  <NavLink title="Home" to={`/`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -303,7 +322,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/about`}>
+                  <NavLink title="About" to={`/about`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -322,7 +341,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/membership`}>
+                  <NavLink title="membership" to={`/membership`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -341,7 +360,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/partners`}>
+                  <NavLink title="partners" to={`/partners`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -360,7 +379,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/franchise`}>
+                  <NavLink title="franchise" to={`/franchise`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -379,7 +398,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/career`}>
+                  <NavLink title="career" to={`/career`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -398,7 +417,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/blog`}>
+                  <NavLink title="blog" to={`/blog`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (
@@ -417,7 +436,7 @@ export default function MainLayout() {
                   </NavLink>
                 </li>
                 <li className="mr-5">
-                  <NavLink to={`/contact`}>
+                  <NavLink title="contact" to={`/contact`}>
                     {({ isActive }) => (
                       <>
                         {isActive ? (

@@ -31,7 +31,7 @@ export default function ErrorPage() {
           <p className="text-black mb-5 text-sm text-center">
             Sorry we can’t find the page you’re looking for...
           </p>
-          <NavLink className={`text-black border-b-2 border-black text-sm lg:text-lg hover:text-primaryPurple transition-all duration-150 hover:border-primaryPurple`} to={"/"}>
+          <NavLink title="Back to home" className={`text-black border-b-2 border-black text-sm lg:text-lg hover:text-primaryPurple transition-all duration-150 hover:border-primaryPurple`} to={"/"}>
             Back to home
           </NavLink>
         </div>

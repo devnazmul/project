@@ -13,6 +13,7 @@ export default function JobCircularCard({ image, title, location, details }) {
         </p>
         <p className="mt-5 text-justify">{details}</p>
         <NavLink
+        title="More Details"
           className="my-2 text-primaryPurple font-semibold text-center w-full block"
           to={"/"}
         >

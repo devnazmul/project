@@ -29,6 +29,7 @@ export default function ErrorPageProfile() {
             Sorry we can’t find the page you’re looking for...
           </p>
           <NavLink
+          title="Back to home"
             className={`text-black border-b-2 border-black text-sm lg:text-lg hover:text-primaryPurple transition-all duration-150 hover:border-primaryPurple`}
             to={"/"}
           >
