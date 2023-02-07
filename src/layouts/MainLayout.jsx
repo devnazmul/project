@@ -39,17 +39,17 @@ export default function MainLayout() {
         <img
           className="absolute top-[150px] w-[290px] -z-10"
           src={leftBgElement}
-          alt=""
+          alt="element"
         />
         <img
           className="absolute top-[190px] right-0 w-[250px] -z-10"
           src={rightBgBallElement}
-          alt=""
+          alt="element"
         />
         <img
           className="absolute top-[150px] right-0 w-[200px] -z-10"
           src={rightBgElement}
-          alt=""
+          alt="element"
         />
 
         <div className="">

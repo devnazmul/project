@@ -7,7 +7,7 @@ export default function ProfileInfo({setIsEdit}) {
         <div className="h-[150px] w-[150px] rounded-full overflow-hidden object-cover">
           <img
             src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-            alt=""
+            alt="user profile"
           />
         </div>
         <div className="mt-5 ml-5">

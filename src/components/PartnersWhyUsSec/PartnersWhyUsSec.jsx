@@ -23,7 +23,7 @@ export default function PartnersWhyUsSec() {
         </ul>
       </div>
       <div>
-        <img src={whyUsImage} alt="" />
+        <img src={whyUsImage} alt="why bikefixup" />
       </div>
     </div>
   );

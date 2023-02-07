@@ -21,7 +21,7 @@ export default function PartnersHeroSec() {
           Become a partner
         </h1>
         <div className="w-full flex justify-center items-center">
-          <img src={heroImage} alt="" />
+          <img src={heroImage} alt={`Become a partner`} />
         </div>
         <div >
           <h2

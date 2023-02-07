@@ -12,7 +12,7 @@ export default function MembershipHeroSec() {
         Online Membership
       </h1>
       <div className="flex my-10 justify-between">
-        <img className="w-[450px]" src={membershipHeroImage} alt="" />
+        <img className="w-[450px]" src={membershipHeroImage} alt={"Online Membership"} />
         <div className="heroGlass py-5 px-10">
           <h3 className="text-3xl mb-5 text-primaryPurple font-semibold">
             Save Thousands Annually on <br /> Your Vehicle Servicing

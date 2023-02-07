@@ -20,7 +20,7 @@ export default function PartnersMarketPotentialSec() {
                 <img
                   className="rounded-xl w-100 sm:px-0 lg:w-[500px] lg:pr-5"
                   src={marketPotentialImage}
-                  alt=""
+                  alt="market potential"
                 />
               </div>
               

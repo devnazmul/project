@@ -31,8 +31,8 @@ export default function UserDashboard() {
           
         </aside>
         <div className="w-10/12 h-[87vh] relative">
-            <img className="absolute right-0 top-0 w-72" src={elememt1} alt="" />
-            <img className="absolute right-0 bottom-0 w-96" src={elememt2} alt="" />
+            <img className="absolute right-0 top-0 w-72" src={elememt1} alt="element" />
+            <img className="absolute right-0 bottom-0 w-96" src={elememt2} alt="element" />
           <Outlet />
         </div>
       </div>
