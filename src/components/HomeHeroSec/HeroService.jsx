@@ -21,7 +21,7 @@ export default function HeroService() {
 
       <img className="h-auto w-full my-5 md:my-10" src={offerImage} alt="" />
 
-      <div class="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4">
         <ServiceCard icon={image1} text={"General Service"} />
         <ServiceCard icon={image3} text={"Engine Work"} />
         <ServiceCard icon={image4} text={"Body Work"} />

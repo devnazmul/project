@@ -56,7 +56,7 @@ export default function MainLayout() {
           {/* HEADER  */}
           <header className="md:h-[121px] flex flex-col align-middle justify-between py-5 px-5 xl:px-36">
             {/* BRANDING  */}
-            <div className="flex justify-between items-center text-black">
+            <div className="flex justify-between items-center text-black h-10 ">
               {/* LOGO  */}
               <span className="text-[#000000] font-poppins font-semibold text-xl sm:text-[28px] md:text-[36px] tracking-[0.3px]">
                 <span className="text-[#AC262C]">Bike</span>Fixup
@@ -242,25 +242,25 @@ export default function MainLayout() {
                         <li>
                           <NavLink
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                            to={"/"}
+                            to={"/profile/dashboard"}
                           >
                             Profile
                           </NavLink>
                           <NavLink
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                            to={"/"}
+                            to={"/profile/my_bookings"}
                           >
                             My Booking
                           </NavLink>
                           <NavLink
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                            to={"/"}
+                            to={"/profile/my_vehicles"}
                           >
                             My Vehicles
                           </NavLink>
                           <NavLink
                             className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                            to={"/"}
+                            to={"/profile/become_partner"}
                           >
                             Become Partner
                           </NavLink>

@@ -1,11 +1,21 @@
 import React from "react";
-import lrftBgImage from "../../assets/004.svg";
-import phoneImage from "../../assets/phone.svg";
+import { Autoplay } from "swiper";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import lrftBgImage from "../../assets/004.svg";
 import appStoreImage from "../../assets/appstore.svg";
 import playStoreImage from "../../assets/playstore.svg";
 import QrCodeImage from "../../assets/QR.svg";
-
+import slideImage1 from "../../assets/slider1.svg";
+import slideImage2 from "../../assets/slider2.svg";
+import slideImage3 from "../../assets/slider3.svg";
+import slideImage4 from "../../assets/slider4.svg";
+import slideImage5 from "../../assets/slider5.svg";
+import slideImage6 from "../../assets/slider6.svg";
+import slideImage7 from "../../assets/slider7.svg";
 export default function HomeMobileAppSec() {
   return (
     <div
@@ -30,49 +40,86 @@ export default function HomeMobileAppSec() {
       <div className="relative h-[400px] xl:w-full">
         <div
           className="
+          mobileCase
           absolute 
           top-[50%] 
+          md:top-[80%]
+          xl:top-[85%]
           -translate-y-[50%] 
           translate-x-[50%] 
+          md:translate-x-[110%]
+          lg:translate-x-[150%]
+          xl:translate-x-[40%]
           right-[50%]  
           w-[200px] 
+          md:w-[250px]
           h-full 
+          md:h-[500px]
           rounded-[30px] 
-          bg-[#C62829]"
-        />
-        <img
-          className="
-            absolute 
-            top-[50%] 
-            -translate-y-[50%] 
-            translate-x-[50%] 
-            right-[50%] 
-            w-[200px]"
-          src={phoneImage}
-          alt="phone"
-        />
+          bg-[#C62829]
+          border-8
+          flex
+          justify-center
+          items-center
+          border-black
+          overflow-hidden
+          pt-5
+          "
+        >
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            modules={[Autoplay]}
+            className="mySwiper h-full w-full"
+          >
+            <SwiperSlide>
+              <img src={slideImage1} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage2} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage3} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage4} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage5} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage6} alt=""/>
+            </SwiperSlide>
+            <SwiperSlide>
+              <img src={slideImage7} alt=""/>
+            </SwiperSlide>
+          </Swiper>
+        </div>
+        
       </div>
 
       {/* TEXT SECTION  */}
       <div
         className="
       mobileSectionGlass 
-      md:w-10/12 
+      md:w-6/12 
       px-2
       py-5 
       sm:px-5 
       md:px-5 
       md:py-5 
-      lg:py-[80px] 
-      lg:px-10 
-      xl:px-[40px] 
       xl:w-auto 
       mt-10"
       >
         <h2
           className="
         text-[25px] 
-        lg:text-[40px] 
+        lg:text-[30px] 
+        xl:text-[40px]
         font-semibold 
         text-center
          text-black 
@@ -85,7 +132,9 @@ export default function HomeMobileAppSec() {
           className="
         text-center
          text-black
-          my-[40px]"
+          my-[40px]
+          md:my-[20px]
+          "
         >
           Get professional periodic two-wheeler service, doorstep bike repair,
           engine care, engine repair, genuine spare parts, and much more done at

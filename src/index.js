@@ -2,8 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import ErrorPage from './ErrorPage';
+import ErrorPageProfile from './ErrorPageProfile';
 import './index.css';
 import MainLayout from './layouts/MainLayout';
+import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
 import Blog from './pages/Blog';
 import Career from './pages/Career';
@@ -12,6 +14,10 @@ import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
 import Partners from './pages/Partners';
+import BecomePartner from './pages/UserProfile/BecomePartner';
+import MyBooking from './pages/UserProfile/MyBooking';
+import MyVehicles from './pages/UserProfile/MyVehicles';
+import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
 
@@ -19,7 +25,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
-    errorElement:<ErrorPage />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -53,8 +59,37 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      
     ],
   },
+  {
+    path: "/profile",
+    element: <UserDashboard />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/profile",
+        element: <ErrorPageProfile />,
+      },
+      {
+        path: "/profile/dashboard",
+        element: <Profile />,
+      },
+      {
+        path: "/profile/my_bookings",
+        element: <MyBooking />,
+      },
+      {
+        path: "/profile/my_vehicles",
+        element: <MyVehicles />,
+      },
+      {
+        path: "/profile/become_partner",
+        element: <BecomePartner />,
+      },
+    ],
+  },
+
 ]);
 
 
