@@ -1,7 +1,7 @@
 import { NavLink, useRouteError } from "react-router-dom";
-import LeftBottomImage from "./assets/404-bottom-left-elements.svg";
-import RightBottomImage from "./assets/404-bottom-right.svg";
-import notfoundImage from "./assets/404.svg";
+import LeftBottomImage from "../../assets/404-bottom-left-elements.svg";
+import RightBottomImage from "../../assets/404-bottom-right.svg";
+import notfoundImage from "../../assets/404.svg";
 
 export default function ErrorPageProfile() {
   const error = useRouteError();

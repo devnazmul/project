@@ -1,26 +1,32 @@
+import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
-import ErrorPage from './ErrorPage';
-import ErrorPageProfile from './ErrorPageProfile';
 import './index.css';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
+import Login from './pages/Auth/Login';
 import Blog from './pages/Blog';
 import Career from './pages/Career';
 import Contact from './pages/Contact';
+import ErrorPage from './pages/Error/ErrorPage';
+import ErrorPageProfile from './pages/Error/ErrorPageProfile';
 import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
 import Partners from './pages/Partners';
+import { ProtectedRoute } from './pages/ProtectedRoute/ProtectedRoute';
+import SuperAdminProtectedRoute from './pages/ProtectedRoute/SuperAdminProtectedRoute';
 import BecomePartner from './pages/UserProfile/BecomePartner';
 import MyBooking from './pages/UserProfile/MyBooking';
 import MyVehicles from './pages/UserProfile/MyVehicles';
 import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
+// API BASE URL 
+axios.defaults.baseURL = 'http://localhost:8080/api/v1'
 
 const router = createBrowserRouter([
   {
@@ -64,8 +70,12 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: 'login',
+    element: <Login />
+  },
+  {
     path: "/profile",
-    element: <UserDashboard />,
+    element: <ProtectedRoute><UserDashboard /></ProtectedRoute>,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -90,9 +100,35 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    path: "/admin",
+    element: <SuperAdminProtectedRoute><UserDashboard /></SuperAdminProtectedRoute>,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: "/admin",
+        element: <ErrorPageProfile />,
+      },
+      {
+        path: "/admin/dashboard",
+        element: <Profile />,
+      },
+      {
+        path: "/admin/my_bookings",
+        element: <MyBooking />,
+      },
+      {
+        path: "/admin/my_vehicles",
+        element: <MyVehicles />,
+      },
+      {
+        path: "/admin/become_partner",
+        element: <BecomePartner />,
+      },
+    ],
+  },
 
 ]);
-
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -103,7 +139,4 @@ root.render(
   </AllContextProvider>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

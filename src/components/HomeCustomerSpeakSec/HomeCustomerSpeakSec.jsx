@@ -3,7 +3,7 @@ import image1 from "../../assets/Ellipse 1.svg";
 import image2 from "../../assets/Ellipse 2.svg";
 import image3 from "../../assets/Ellipse 3.svg";
 import CustomerTestimonialCard from "./CustomerTestimonialCard";
-export default function HomeCusromerSpeakSec() {
+export default function HomeCustomerSpeakSec() {
   return (
     <div className="serviceMobileSecGleass px-5 lg:px-36 pt-10 lg:pt-36 mt-20 text-black flex flex-col justify-between items-center relative mb-20">
       <h2 className="text-primaryPurple text-4xl font-semibold text-center mb-5">Customer Speaks</h2>

@@ -1,6 +1,6 @@
 import React from "react";
 import HomeBenifitSec from "../components/HomeBenifitSec/HomeBenifitSec";
-import HomeCusromerSpeakSec from "../components/HomeCusromerSpeakSec/HomeCusromerSpeakSec";
+import HomeCustomerSpeakSec from "../components/HomeCustomerSpeakSec/HomeCustomerSpeakSec";
 import HeroSecttion from "../components/HomeHeroSec/HeroSecttion";
 import HomeMobileAppSec from "../components/HomeMobileAppSec/HomeMobileAppSec";
 import HomeServiceAppSec from "../components/HomeServiceAppSec/HomeServiceAppSec";
@@ -14,7 +14,7 @@ export default function Home() {
       <HomeServiceAppSec />
       <HomeBenifitSec />
       <Location />
-      <HomeCusromerSpeakSec />
+      <HomeCustomerSpeakSec />
     </div>
   );
 }
