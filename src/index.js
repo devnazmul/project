@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
 import './index.css';
+import Dashboard from './layouts/Dashboard';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
@@ -12,6 +13,7 @@ import Blog from './pages/Blog';
 import Career from './pages/Career';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/Error/ErrorPage';
+import ErrorPageDashboard from './pages/Error/ErrorPageDashboard';
 import ErrorPageProfile from './pages/Error/ErrorPageProfile';
 import Franchise from './pages/Franchise';
 import Home from './pages/Home';
@@ -102,12 +104,12 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin",
-    element: <SuperAdminProtectedRoute><UserDashboard /></SuperAdminProtectedRoute>,
+    element: <Dashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "/admin",
-        element: <ErrorPageProfile />,
+        element: <ErrorPageDashboard />,
       },
       {
         path: "/admin/dashboard",
