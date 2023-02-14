@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
 import './index.css';
-import Dashboard from './layouts/Dashboard';
+import Dashboard from './layouts/AdminDashboard';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
+import User from './pages/AdminDashboard/User';
 import Login from './pages/Auth/Login';
 import Blog from './pages/Blog';
 import Career from './pages/Career';
@@ -103,31 +104,15 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/admin",
+    path: "/admin/dashboard",
     element: <Dashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/admin",
-        element: <ErrorPageDashboard />,
-      },
-      {
         path: "/admin/dashboard",
-        element: <Profile />,
-      },
-      {
-        path: "/admin/my_bookings",
-        element: <MyBooking />,
-      },
-      {
-        path: "/admin/my_vehicles",
-        element: <MyVehicles />,
-      },
-      {
-        path: "/admin/become_partner",
-        element: <BecomePartner />,
-      },
-    ],
+        element: <User />
+      }
+    ]
   },
 
 ]);

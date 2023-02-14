@@ -12,27 +12,27 @@ export default function UserDashboard() {
           </NavLink>
           <div className="">
             <ul>
-            <li>
-              <NavLink title="Profile" className={(navData)=>`w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive?'bg-pink-500':'bg-white'} bg-opacity-40 inline-block`} to={`/profile/dashboard`}>Profile</NavLink>
-            </li>
-            <li>
-              <NavLink title="My Booking" className={(navData)=>`w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive?'bg-pink-500':'bg-white'} bg-opacity-40 inline-block`} to={`/profile/my_bookings`}>My Booking</NavLink>
-            </li>
-            <li>
-              <NavLink title="My Vehiclesr" className={(navData)=>`w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive?'bg-pink-500':'bg-white'} bg-opacity-40 inline-block`} to={`/profile/my_vehicles`}>My Vehicles</NavLink>
-            </li>
-            <li>
-              <NavLink title="Become Partner" className={(navData)=>`w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive?'bg-pink-500':'bg-white'} bg-opacity-40 inline-block`} to={`/profile/become_partner`}>Become Partner</NavLink>
-            </li>
-          </ul>
-          <button  title={`logout`} className="absolute bottom-5 right-5 text-primaryRed font-semibold">Logout</button>
+              <li>
+                <NavLink title="Profile" className={(navData) => `w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive ? 'bg-pink-500' : 'bg-white'} bg-opacity-40 inline-block`} to={`/profile/dashboard`}>Profile</NavLink>
+              </li>
+              <li>
+                <NavLink title="My Booking" className={(navData) => `w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive ? 'bg-pink-500' : 'bg-white'} bg-opacity-40 inline-block`} to={`/profile/my_bookings`}>My Booking</NavLink>
+              </li>
+              <li>
+                <NavLink title="My Vehiclesr" className={(navData) => `w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive ? 'bg-pink-500' : 'bg-white'} bg-opacity-40 inline-block`} to={`/profile/my_vehicles`}>My Vehicles</NavLink>
+              </li>
+              <li>
+                <NavLink title="Become Partner" className={(navData) => `w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-2 my-2 ${navData.isActive ? 'bg-pink-500' : 'bg-white'} bg-opacity-40 inline-block`} to={`/profile/become_partner`}>Become Partner</NavLink>
+              </li>
+            </ul>
+            <button title={`logout`} className="absolute bottom-5 right-5 text-primaryRed font-semibold">Logout</button>
           </div>
-          
-          
+
+
         </aside>
         <div className="w-10/12 h-[87vh] relative">
-            <img className="absolute right-0 top-0 w-72" src={elememt1} alt="element" />
-            <img className="absolute right-0 bottom-0 w-96" src={elememt2} alt="element" />
+          <img className="absolute right-0 top-0 w-72" src={elememt1} alt="element" />
+          <img className="absolute right-0 bottom-0 w-96" src={elememt2} alt="element" />
           <Outlet />
         </div>
       </div>
