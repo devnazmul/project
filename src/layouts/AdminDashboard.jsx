@@ -12,7 +12,12 @@ export default function AdminDashboard() {
                 </aside>
                 <div className="w-4/5">
                     <div className="text-black pl-10 py-5 border-l border-t border-white z-50 rounded-3xl profileDashboardContainerGlass h-[90vh]">
-                        <Outlet />
+                        <div className="my-2 text-center">
+                            <h2>hey developer </h2>
+                        </div>
+                        <div className="">
+                            <Outlet />
+                        </div>
                     </div>
                 </div>
             </div>

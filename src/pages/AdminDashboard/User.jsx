@@ -3,7 +3,7 @@ import React from 'react'
 export default function User() {
     return (
         <div>
-            <table class="table-fixed">
+            <table class="table-auto">
                 <thead>
                     <tr>
                         <th>name</th>
@@ -13,6 +13,7 @@ export default function User() {
                         <th>city</th>
                         <th>model no</th>
                         <th>CC</th>
+                        <th>signup date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -24,6 +25,7 @@ export default function User() {
                         <td>mohammadpur</td>
                         <td>pulser R15</td>
                         <td>883</td>
+                        <td>12-5-23</td>
                     </tr>
                 </tbody>
             </table>

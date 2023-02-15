@@ -40,7 +40,7 @@ export default function DashboardNav() {
                     sidebarList.map(sidebar =>
                         <li>
                             <NavLink to={"#"}
-                                className={(navData) => `${navData.isActive ? 'bg-pink-500' : 'bg-white'} w-full rounded-lg transition-all duration-200 hover:text-white hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-3  bg-opacity-40 inline-block`}
+                                className={(navData) => `${navData.isActive ? 'bg-pink-500' : 'bg-white'} w-full rounded-lg transition-all duration-200 hover:bg-[#83e9fb] hover:bg-opacity-50 hover:translate-x-2 shadow-md border-l border-t border-white py-2 px-3  bg-opacity-40 inline-block`}
                             >
                                 {sidebar.navName}
                             </NavLink>

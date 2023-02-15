@@ -45,30 +45,26 @@ export default function Header() {
           {/* BURGER ICON START  */}
           <button title={"menu icon"} onClick={handleResponsiveToggleNav}>
             <span
-              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
-                responsiveTogleIsOpened ? "rotate-45 translate-y-3" : "rotate-0"
-              }`}
+              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${responsiveTogleIsOpened ? "rotate-45 translate-y-3" : "rotate-0"
+                }`}
             ></span>
             <span
-              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
-                responsiveTogleIsOpened ? "translate-x-96" : "translate-x-0"
-              }`}
+              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${responsiveTogleIsOpened ? "translate-x-96" : "translate-x-0"
+                }`}
             ></span>
             <span
-              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${
-                responsiveTogleIsOpened
-                  ? "-rotate-45 -translate-y-3"
-                  : "rotate-0"
-              }`}
+              className={`block transition-all duration-300 h-[2px] w-7 bg-white my-2 ${responsiveTogleIsOpened
+                ? "-rotate-45 -translate-y-3"
+                : "rotate-0"
+                }`}
             ></span>
           </button>
           {/* BURGER ICON END  */}
 
           {/* RESPONSIVE NAV START  */}
           <div
-            className={`${
-              responsiveTogleIsOpened ? "right-0" : "-right-96"
-            } transition-all duration-300 responsiveNav absolute bg-white  w-64 top-10 px-5 py-5 rounded-lg shadow-lg z-[100] flex flex-col`}
+            className={`${responsiveTogleIsOpened ? "right-0" : "-right-96"
+              } transition-all duration-300 responsiveNav absolute bg-white  w-64 top-10 px-5 py-5 rounded-lg shadow-lg z-[100] flex flex-col`}
           >
             <div className="w-full mb-6">
               {!isLogin ? (

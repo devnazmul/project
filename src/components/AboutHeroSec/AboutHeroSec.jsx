@@ -3,25 +3,25 @@ import heroImage from "../../assets/aboutHero.svg";
 
 export default function AboutHeroSec() {
   return (
-    <div className="flex justify-between text-black">
-      <div className="w-5/12 relative">
+    <div className="lg:justify-between flex-col text-black flex xl:py-8 px-5 xl:px-36">
+      <div className="w-full lg:w-5/12 lg:relative flex items-center justify-center">
         <img
-          className="absolute top-32 -right-14 bottom-10 z-50 w-[420px]"
+          className="lg:absolute lg:top-32 lg:-right-14 lg:bottom-10 z-50 w-[200px] lg:w-[420px]"
           src={heroImage}
           alt=""
         />
       </div>
-      <div className="aboutHeroGlass w-7/12 py-10 pl-20 pr-32">
-        <h1 className="text-[90px] leading-none font-bold">
+      <div className="aboutHeroGlass w-full lg:w-7/12 lg:py-10 pl-6 lg:pl-20 lg:pr-32 px-5 mt-5 text-center">
+        <h1 className="text-3xl lg:text-[90px] leading-none font-bold mt-4">
           About <span className="text-primaryPurple">Us</span>{" "}
         </h1>
-        <h2 className="text-primaryPurple text-4xl font-semibold my-5">
+        <h2 className="text-primaryPurple text-xl lg:text-4xl font-semibold lg:my-5 my-2">
           Welcome at
-          <span className="text-black">
-            <span className="text-primaryRed"> Bike</span>fixup{" "}
+          <span className="text-black text-sm lg:text-base">
+            <span className="text-primaryRed mr-1"> Bike</span>fixup{" "}
           </span>
         </h2>
-        <p className="mb-5 text-justify">
+        <p className="mb-5 text-justify lg:block w-full">
           How painful is it to service your motorcycle? Let us break it down for
           you. Not sure which services station to trust? Don’t want to spend too
           much time in the workshop? Are you looking for a assemblage pick-up
