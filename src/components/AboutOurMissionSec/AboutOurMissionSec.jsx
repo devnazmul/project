@@ -2,10 +2,10 @@ import React from "react";
 
 export default function AboutOurMissionSec() {
   return (
-    <div className={`aboutGlass mt-20 px-36 py-8 text-black`}>
-      <h4 className="text-4xl font-semibold text-primaryPurple">Our mission</h4>
-      <h4 className="text-3xl font-medium">What Makes Bikefixup stand out?</h4>
-      <p className="mt-10 mb-20 text-justify">
+    <div className={`aboutGlass mt-20 px-6 lg:px-36 py-8 text-black`}>
+      <h4 className="lg:text-4xl text-2xl font-semibold text-primaryPurple text-center">Our mission</h4>
+      <h4 className="lg:text-3xl text-lg font-medium text-center">What Makes Bikefixup stand out?</h4>
+      <p className="mt-10 lg:mb-20 mb-0 text-justify">
         We at Bikefixup want to change the bike servicing industry by providing
         trustworthy and real bike services at affordable prices.
         <br />
