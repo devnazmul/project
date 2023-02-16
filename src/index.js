@@ -4,10 +4,11 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
 import './index.css';
-import Dashboard from './layouts/AdminDashboard';
+import AdminDashboard from './layouts/AdminDashboard';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
+import Cart from './pages/AdminDashboard/Cart';
 import User from './pages/AdminDashboard/User';
 import Login from './pages/Auth/Login';
 import Blog from './pages/Blog';
@@ -105,12 +106,16 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <Dashboard />,
+    element: <AdminDashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
         path: "/admin/dashboard",
         element: <User />
+      },
+      {
+        path: "/admin/dashboard/cart",
+        element: <Cart />
       }
     ]
   },
