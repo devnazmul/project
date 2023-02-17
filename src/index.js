@@ -10,6 +10,7 @@ import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
 import Brand from './pages/AdminDashboard/Brand';
 import Order from './pages/AdminDashboard/Order';
+import ServiceMaster from './pages/AdminDashboard/ServiceMaster/ServiceMaster';
 import User from './pages/AdminDashboard/User';
 import Login from './pages/Auth/Login';
 import Blog from './pages/Blog';
@@ -121,7 +122,11 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/order",
         element: <Order />
-      }
+      },
+      {
+        path: "/admin/dashboard/serviceMaster",
+        element: <ServiceMaster />
+      },
     ]
   },
 

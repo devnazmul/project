@@ -13,7 +13,7 @@ const DashboardNav = () => {
         { name: "user", link: "#", icon: <AiOutlineUser /> },
         { name: "Brand", link: "/admin/dashboard/brand", icon: <FiMessageSquare /> },
         { name: "Order", link: "/admin/dashboard/order", icon: <FiShoppingCart /> },
-        { name: "analytics", link: "#", icon: <TbReportAnalytics /> },
+        { name: "Service Master", link: "/admin/dashboard/serviceMaster", icon: <TbReportAnalytics /> },
         { name: "File Manager", link: "#", icon: <FiFolder /> },
         { name: "Saved", link: "#", icon: <AiOutlineHeart /> },
         { name: "Setting", link: "#", icon: <RiSettings4Line /> },
