@@ -8,7 +8,8 @@ import AdminDashboard from './layouts/AdminDashboard';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
-import Cart from './pages/AdminDashboard/Cart';
+import Brand from './pages/AdminDashboard/Brand';
+import Order from './pages/AdminDashboard/Order';
 import User from './pages/AdminDashboard/User';
 import Login from './pages/Auth/Login';
 import Blog from './pages/Blog';
@@ -114,8 +115,12 @@ const router = createBrowserRouter([
         element: <User />
       },
       {
-        path: "/admin/dashboard/cart",
-        element: <Cart />
+        path: "/admin/dashboard/brand",
+        element: <Brand />
+      },
+      {
+        path: "/admin/dashboard/order",
+        element: <Order />
       }
     ]
   },
