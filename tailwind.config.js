@@ -15,14 +15,15 @@ module.exports = {
       letterSpacing: {
         wide: '.03px',
       },
-      colors:{
-        "primaryRed":'#AC262C',
-        "primaryPurple":"#990195"
+      colors: {
+        "primaryRed": '#AC262C',
+        "primaryPurple": "#990195"
       }
     }
   },
   plugins: [
     require('tailwindcss-filters'),
-    require('tailwindcss-neumorphism')
+    require('tailwindcss-neumorphism'),
+    require("daisyui"),
   ],
 }

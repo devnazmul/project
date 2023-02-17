@@ -2,13 +2,15 @@ import React from 'react'
 
 export default function User() {
     return (
-        <div>
-            <table class="table-auto">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
+                {/* <!-- head --> */}
                 <thead>
                     <tr>
-                        <th>name</th>
+                        <th></th>
+                        <th>Name</th>
                         <th>email</th>
-                        <th>mobile number</th>
+                        <th>mobil number</th>
                         <th>state</th>
                         <th>city</th>
                         <th>model no</th>
@@ -17,18 +19,36 @@ export default function User() {
                     </tr>
                 </thead>
                 <tbody>
+                    {/* <!-- row 1 --> */}
                     <tr>
-                        <td>rony</td>
-                        <td>dev@gmail.com</td>
-                        <td>01785478232</td>
-                        <td>Dhaka</td>
-                        <td>mohammadpur</td>
-                        <td>pulser R15</td>
-                        <td>883</td>
-                        <td>12-5-23</td>
+                        <th>1</th>
+                        <td>Cy Ganderton</td>
+                        <td>Quality Control Specialist</td>
+                        <td>Blue</td>
+                    </tr>
+                    {/* <!-- row 2 --> */}
+                    <tr className="hover">
+                        <th>2</th>
+                        <td>Hart Hagerty</td>
+                        <td>Desktop Support Technician</td>
+                        <td>Purple</td>
+                    </tr>
+                    {/* <!-- row 3 --> */}
+                    <tr>
+                        <th>3</th>
+                        <td>Brice Swyre</td>
+                        <td>Tax Accountant</td>
+                        <td>Red</td>
+                    </tr>
+                    {/* <!-- row 4 --> */}
+                    <tr>
+                        <th>3</th>
+                        <td>Brice Swyre</td>
+                        <td>Tax Accountant</td>
+                        <td>Red</td>
                     </tr>
                 </tbody>
             </table>
         </div>
-    )
-}
+    );
+};
