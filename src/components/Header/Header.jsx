@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IoLogOutOutline } from "react-icons/io5";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 import TransparentBgButton from "../Buttons/TransparentBgButton";
 import WhiteNewmorfButton from "../Buttons/WhiteNewmorfButton";
@@ -9,6 +9,7 @@ import ResponsiveNavLinks from "./ResponsiveNavLinks";
 
 export default function Header() {
   const { isLogin, setIsLogin } = useAuth();
+const navigate = useNavigate()
 
   const [loginPopup, setLoginPopup] = useState(false);
 
@@ -105,11 +106,9 @@ export default function Header() {
 
         {!isLogin ? (
           <div className="hidden md:block">
-            <TransparentBgButton title={"Sign Up"} />
-            <WhiteNewmorfButton
-              handler={() => setLoginPopup(true)}
-              title={"Login"}
-            />
+            {/* LOGIN AND SIGNUP BUTTONS  */}
+            <TransparentBgButton handler={() => {navigate('/registration')}} title={"Sign Up"} />
+            <WhiteNewmorfButton handler={() => {navigate('/login')}} title={"Login"} />
           </div>
         ) : (
           <div className="relative hidden md:block">
@@ -171,7 +170,6 @@ export default function Header() {
           </div>
         )}
       </div>
-
       {/* NAV LINKS  */}
       <NavLinks />
     </header>

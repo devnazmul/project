@@ -13,18 +13,17 @@ import Order from './pages/AdminDashboard/Order';
 import ServiceMaster from './pages/AdminDashboard/ServiceMaster/ServiceMaster';
 import User from './pages/AdminDashboard/User';
 import Login from './pages/Auth/Login';
+import Registration from './pages/Auth/Registration';
 import Blog from './pages/Blog';
 import Career from './pages/Career';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/Error/ErrorPage';
-import ErrorPageDashboard from './pages/Error/ErrorPageDashboard';
 import ErrorPageProfile from './pages/Error/ErrorPageProfile';
 import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
 import Partners from './pages/Partners';
 import { ProtectedRoute } from './pages/ProtectedRoute/ProtectedRoute';
-import SuperAdminProtectedRoute from './pages/ProtectedRoute/SuperAdminProtectedRoute';
 import BecomePartner from './pages/UserProfile/BecomePartner';
 import MyBooking from './pages/UserProfile/MyBooking';
 import MyVehicles from './pages/UserProfile/MyVehicles';
@@ -76,8 +75,12 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: 'login',
+    path: '/login',
     element: <Login />
+  },
+  {
+    path: '/registration',
+    element: <Registration />
   },
   {
     path: "/profile",
