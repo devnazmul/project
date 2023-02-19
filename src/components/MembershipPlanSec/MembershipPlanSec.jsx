@@ -7,7 +7,7 @@ export default function MembershipPlanSec() {
       <h2 className="lg:text-[50px] text-xl font-semibold text-center">
         Choose your own plan
       </h2>
-      <div className="w-full flex justify-center items-center mt-24">
+      <div className="w-full flex justify-center items-center lg:mt-24 mt-8">
         <div class="flex lg:flex-row flex-col w-full lg:justify-between gap-16 lg:gap-0">
           <PlanCard
             customClass={"w-11/12"}
