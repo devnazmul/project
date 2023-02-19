@@ -9,9 +9,9 @@ import BlogPostCard from "../BlogPostCard/BlogPostCard";
 
 export default function BlogPostContainerSec() {
   return (
-    <div className="px-36">
+    <div className="lg:px-36 px-6 mt-6">
       <h3 className="font-medium text-3xl">Latest Posts</h3>
-      <div className="grid gap-10 grid-cols-2 my-10">
+      <div className="grid gap-10 lg:grid-cols-2 grid-cols-1 my-10">
         <BlogPostCard
           image={Blog1}
           title={`Lorem ipsum dolor`}
