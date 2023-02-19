@@ -7,17 +7,17 @@ import FormDiv from "../Forms/FormDiv";
 import FormInput from "../Forms/FormInput";
 export default function ContactHeroSec() {
   return (
-    <div className="px-32 py-8 text-black">
-      <h1 className="text-4xl font-semibold text-center mb-5">
+    <div className="lg:px-32 px-6 lg:py-8 py-4 text-black">
+      <h1 className="lg:text-4xl text-xl font-semibold text-center lg:mb-5 mb-2">
         Have Some Question?
       </h1>
-      <p className="text-center mb-10">
+      <p className="text-center mb-10 lg:text-base text-xs">
         Please feel free to talk to use you have ay questions.
         <br />
         We endeavor at answer withing 24 hours.
       </p>
-      <div className="flex">
-        <div className="w-7/12 pr-20">
+      <div className="flex lg:flex-row flex-col">
+        <div className="lg:w-7/12 w-full lg:pr-20">
           <div>
             <img src={contactHeroImage} alt="" />
           </div>
@@ -36,7 +36,7 @@ export default function ContactHeroSec() {
             </ul>
           </div>
         </div>
-        <div className="w-5/12">
+        <div className="lg:w-5/12 w-full">
           <FormDiv>
             <FormInput
               extra_class={`w-full mt-10 h-[45px] px-[27px] py-2 mb-[15px] text-black`}
