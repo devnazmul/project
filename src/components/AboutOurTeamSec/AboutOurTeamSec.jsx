@@ -18,7 +18,7 @@ export default function AboutOurTeamSec() {
           delightful experience with us.
         </p>
       </div>
-      <div className="absolute right-[-300px] lg:right-[132px] lg:h-[350px] h-[150px] overflow-hidden w-[500px] rounded-3xl z-[-11]">
+      <div className="absolute right-[-300px] lg:right-[132px] lg:h-[350px] h-[150px] overflow-hidden w-[500px] rounded-3xl ">
         <img className="h-full object-cover" src={teamImage} alt="" />
       </div>
     </div>
