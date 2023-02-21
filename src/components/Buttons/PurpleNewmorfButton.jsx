@@ -6,9 +6,11 @@ export default function PurpleNewmorfButton({
   title,
   extra_class,
   isLoading,
+  type,
 }) {
   return (
     <button
+      type={type && type}
       title={title}
       className={`newMorfPurple ${extra_class}`}
       onClick={handler}
