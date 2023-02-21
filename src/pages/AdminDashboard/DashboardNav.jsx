@@ -11,10 +11,10 @@ const DashboardNav = () => {
 
     const menus = [
         { name: "user", link: "#", icon: <AiOutlineUser /> },
-        { name: "messages", link: "#", icon: <FiMessageSquare /> },
-        { name: "analytics", link: "#", icon: <TbReportAnalytics /> },
+        { name: "Brand", link: "/admin/dashboard/brand", icon: <FiMessageSquare /> },
+        { name: "Order", link: "/admin/dashboard/order", icon: <FiShoppingCart /> },
+        { name: "Service Master", link: "/admin/dashboard/serviceMaster", icon: <TbReportAnalytics /> },
         { name: "File Manager", link: "#", icon: <FiFolder /> },
-        { name: "Cart", link: "/admin/dashboard/cart", icon: <FiShoppingCart /> },
         { name: "Saved", link: "#", icon: <AiOutlineHeart /> },
         { name: "Setting", link: "#", icon: <RiSettings4Line /> },
     ];

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export default function User() {
+const Order = () => {
     return (
         <div className="overflow-x-auto">
             <table className="table w-full">
@@ -8,12 +8,21 @@ export default function User() {
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>mobil number</th>
-                        <th>state</th>
-                        <th>city</th>
-                        <th>signup date</th>
+                        <th>Order ID</th>
+                        <th>Customer Name</th>
+                        <th>Mobile Number</th>
+                        <th>Service</th>
+                        <th>Slot</th>
+                        <th>Pickup require on not</th>
+                        <th>Service Status</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>CC</th>
+                        <th>State</th>
+                        <th>City</th>
+                        <th>Address</th>
+                        <th>Map Location</th>
+                        <th>Payment Status</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,3 +61,5 @@ export default function User() {
         </div>
     );
 };
+
+export default Order;

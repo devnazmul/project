@@ -3,7 +3,7 @@ import heroImage from "../../assets/aboutHero.svg";
 
 export default function AboutHeroSec() {
   return (
-    <div className="lg:justify-between flex-col text-black flex xl:py-8 px-5 xl:px-36">
+    <div className="lg:justify-between lg:flex-row flex-col text-black flex xl:py-8 px-5 xl:px-36">
       <div className="w-full lg:w-5/12 lg:relative flex items-center justify-center">
         <img
           className="lg:absolute lg:top-32 lg:-right-14 lg:bottom-10 z-50 w-[200px] lg:w-[420px]"
@@ -11,13 +11,13 @@ export default function AboutHeroSec() {
           alt=""
         />
       </div>
-      <div className="aboutHeroGlass w-full lg:w-7/12 lg:py-10 pl-6 lg:pl-20 lg:pr-32 px-5 mt-5 text-center">
-        <h1 className="text-3xl lg:text-[90px] leading-none font-bold mt-4">
+      <div className="aboutHeroGlass w-full lg:w-7/12 lg:py-10 pl-6 lg:pl-20 lg:pr-32 px-5 mt-5 text-center lg:text-left">
+        <h1 className="text-3xl lg:text-[80px] leading-none font-bold mt-4">
           About <span className="text-primaryPurple">Us</span>{" "}
         </h1>
         <h2 className="text-primaryPurple text-xl lg:text-4xl font-semibold lg:my-5 my-2">
           Welcome at
-          <span className="text-black text-sm lg:text-base">
+          <span className="text-black text-sm lg:text-4xl">
             <span className="text-primaryRed mr-1"> Bike</span>fixup{" "}
           </span>
         </h2>
