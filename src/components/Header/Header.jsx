@@ -70,18 +70,15 @@ const navigate = useNavigate()
             <div className="w-full mb-6">
               {!isLogin ? (
                 <div className="flex justify-around items-center">
-                  <TransparentBgButton title={"Sign Up"} />
-                  <WhiteNewmorfButton
-                    handler={() => setLoginPopup(true)}
-                    title={"Login"}
-                  />
+                  <TransparentBgButton handler={() => {navigate('/registration')}} title={"Sign Up"} />
+                  <WhiteNewmorfButton handler={() => {navigate('/login')}} title={"Login"} />
                 </div>
               ) : (
                 <div className="w-full flex justify-between">
                   <button
                     title={"user profile"}
                     onClick={() => {
-                      setIsNavOpened(!isNavOpened);
+                      navigate('/profile/dashboard')
                     }}
                     className={`w-auto h-10 flex items-center`}
                   >

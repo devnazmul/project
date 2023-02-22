@@ -1,66 +1,160 @@
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { toast, Toaster } from "react-hot-toast";
 import { RxCrossCircled } from "react-icons/rx";
-import OTPInput from 'react-otp-input';
+import OTPInput from "react-otp-input";
+import "react-phone-input-2/lib/style.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
-import { getAllCities } from "../../apis/citiy";
-import { getAllStates } from "../../apis/state";
+import { apiUserRegistration } from "../../apis/auth";
+import { apiGetAllCities } from "../../apis/citiy";
+import { apiGetAllStates } from "../../apis/state";
 import loginBottomImage from "../../assets/login-bottom.png";
 import loginTopImage from "../../assets/login-top.png";
 import registrationImage from "../../assets/registrationImage.png";
 import PurpleNewmorfButton from "../../components/Buttons/PurpleNewmorfButton";
 import { useAuth } from "../../context/AuthProvider";
-
+import { auth } from "../../firebase.config";
 
 export default function Registration() {
+  //  CONTEXT
+  const { setIsLogin, isLogin } = useAuth();
+
+  // GEO LOCATION
+  const [position, setPosition] = useState({});
+
+  // OTP
+  const [OTPPopup, setOTPPopup] = useState(false);
+  const [otp, setOtp] = useState("");
+
+  // LOADING
+  const [isOTPLoading, setIsOTPLoading] = useState(false);
+  const [isLoadingData, setIsLoadingData] = useState(false);
+
+  // DATA
+  const [allStates, setAllStates] = useState([]);
+  const [allCities, setAllCities] = useState([]);
+
+  // REACT ROUTER
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  // REACT FORM HOOK
   const {
     register,
     handleSubmit,
     watch,
     formState: { errors },
   } = useForm();
-  const { setIsLogin, isLogin } = useAuth();
-
-  const [OTPPopup, setOTPPopup] = useState(true);
-  const [otp, setOtp] = useState("");
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [isLoadingData, setIsLoadingData] = useState(false);
-  const [allStates, setAllStates] = useState([]);
-  const [allCities, setAllCities] = useState([]);
-  const [phone, setPhone] = useState(`8801924521771`);
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const from = location?.state?.from?.pathname || "/";
-
   const selectedState = watch("state_id");
 
+  // FORM DATA
+
+  const [formData, setFormData] = useState({});
+
   useEffect(() => {
+    getGeoLocation();
     setIsLoadingData(true);
-    getAllStates().then((res) => {
+    apiGetAllStates().then((res) => {
       setAllStates(res.data.data);
-      console.log(res.data.data);
       setIsLoadingData(false);
     });
   }, []);
-
+  useEffect(() => {
+    console.log({ position });
+  }, [position]);
   useEffect(() => {
     if (selectedState > 0) {
-      getAllCities({ id: parseInt(selectedState) }).then((res) => {
+      apiGetAllCities({ id: parseInt(selectedState) }).then((res) => {
         setAllCities(res.data.data);
       });
     }
     setAllCities([]);
   }, [selectedState]);
 
+  // OTP FUNCTIONALITY =======================================
+  const onCapchaVeryfy = () => {
+    if (!window.recaptchaVerifier) {
+      window.recaptchaVerifier = new RecaptchaVerifier(
+        "recaptcha-container",
+        {
+          size: "invisible",
+          callback: (response) => {
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            onSignup();
+          },
+          "expired-callback": () => {},
+        },
+        auth
+      );
+    }
+  };
+
+  const onSignup = (data) => {
+    setIsOTPLoading(true);
+    onCapchaVeryfy();
+
+    const appVerifier = window.recaptchaVerifier;
+
+    signInWithPhoneNumber(auth, data.phone, appVerifier)
+      .then((confirmationResult) => {
+        window.confirmationResult = confirmationResult;
+        setIsOTPLoading(false);
+        setOTPPopup(true);
+        toast.success("The OTP is send.");
+      })
+      .catch((error) => {
+        console.log({ error });
+        toast.error("The OTP is not send! Try again.");
+      });
+    setIsOTPLoading(false);
+  };
+
+  const onOTVerify = () => {
+    setIsOTPLoading(true);
+    window.confirmationResult.confirm(otp).then(async (res) => {
+      apiUserRegistration(formData)
+        .then((res) => {
+          setIsLogin(true);
+          setIsOTPLoading(false);
+        })
+        .catch((err) => {
+          if (err) {
+            toast.error("Somthing in wrong! Try again.");
+            setIsOTPLoading(false);
+            setOTPPopup(false);
+          }
+        });
+    });
+  };
+  // END OTP FUNCTIONALITY =======================================
+
   const handleOtpChange = (value) => {
     setOtp(value);
   };
 
+  // GET GEO LOCATION
+  const getGeoLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        setPosition({
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+        });
+      });
+    }
+  };
+
   const onSubmit = (data) => {
     console.log({ data });
+    data.phone = `+${data.phone}`;
+    data.active_state = 1;
+    data.latitude = position?.lat;
+    data.longitude = position?.lng;
+    setFormData(data);
+    onSignup(data);
   };
 
   if (isLogin) {
@@ -73,28 +167,38 @@ export default function Registration() {
       ) : (
         <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] sm:px-5 sm:py-5 md:px-10 md:py-10 h-screen">
           <div id="recaptcha-container"></div>
-
+          <Toaster position="top-center" />
           <Popup className="otp-popup" open={OTPPopup}>
-            <div className="relative">
-              <button
-                onClick={() => setOTPPopup(false)}
-                className="absolute right-1 top-1"
-              >
-                <RxCrossCircled className="text-2xl text-[#ffffff] font-semibold" />
-              </button>
-              <h1 className="text-gray-500 font-semibold text-xl mb-2">
-                OTP Verification
-              </h1>
-              <p className="text-[13px] text-gray-600 px-3">We already sended a OTP to your phone Please enter your code and verify your account.</p>
-              <div className="flex justify-center items-center h-[130px]">
-                <OTPInput
-                  value={otp}
-                  onChange={handleOtpChange}
-                  numInputs={6} 
-                  className={`otp-container`}
+            <div className="flex justify-center items-center h-full w-full">
+              <div className="relative w-[400px] p-5 rounded-lg shadow-xl bg-gradient-to-tr from-pink-500 to-cyan-300">
+                <button
+                  onClick={() => setOTPPopup(false)}
+                  className="absolute top-0 right-0 sm:right-1 sm:top-1"
+                >
+                  <RxCrossCircled className="text-2xl text-[#000] font-semibold" />
+                </button>
+                <h1 className="text-black font-semibold text-xl mb-2">
+                  OTP Verification
+                </h1>
+                <p className="text-[13px] text-white px-1 sm:px-3">
+                  We already sended a OTP to your phone Please enter your code
+                  and verify your account.
+                </p>
+                <div className="flex justify-center items-center h-[100px] sm:h-[130px]">
+                  <OTPInput
+                    value={otp}
+                    onChange={handleOtpChange}
+                    numInputs={6}
+                    className={`otp-container`}
+                  />
+                </div>
+                <PurpleNewmorfButton
+                  isLoading={isOTPLoading}
+                  handler={onOTVerify}
+                  title={"Verify"}
+                  extra_class={`px-10 py-2 my-1 sm:my-2 text-white font-semibold`}
                 />
               </div>
-              <PurpleNewmorfButton title={'Verify'} extra_class={`px-10 py-2 my-2 text-white font-semibold`} />
             </div>
           </Popup>
 
@@ -210,7 +314,7 @@ export default function Registration() {
                       <PurpleNewmorfButton
                         type="submit"
                         title={"Submit"}
-                        isLoading={isLoading}
+                        isLoading={isOTPLoading}
                         extra_class={`px-10 py-2 my-3 font-semibold`}
                       />
                     </form>

@@ -24,9 +24,7 @@ export default function Login() {
 
   const from = location?.state?.from?.pathname || "/";
 
-  if (isLogin) {
-    return navigate(from, { replace: true });
-  }
+
   const onCapchaVerify = () => {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
@@ -61,6 +59,9 @@ export default function Login() {
         setIsLoading(false);
       });
   };
+  if (isLogin) {
+    return navigate(from, { replace: true });
+  }
   return (
     <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] px-5 py-5 md:px-10 md:py-10 h-screen">
       <div id="recaptcha-container"></div>

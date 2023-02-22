@@ -1,7 +1,7 @@
 
 import axios from "axios";
 
-export const getAllCities = async (query) => {
+export const apiGetAllCities = async (query) => {
     const config = {
         headers: {
             "Content-Type": "application/json",

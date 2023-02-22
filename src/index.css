@@ -370,8 +370,8 @@ html {
 .otp-popup-content {
   text-align: center;
   padding: 10px;
-  height: 300px;
-  width: 400px;
+  height: 100%;
+  width: 100%;
   background: linear-gradient(
       155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
@@ -394,7 +394,7 @@ html {
     inset 4px 4px 5px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
   /* Note: backdrop-filter has minimal browser support */
-
+  border: 1px solid white;
   border-radius: 5px;
   height: 60px;
   width: 40px !important;
@@ -403,6 +403,26 @@ html {
   font-size: 2rem;
   font-weight: 500;
 }
+
 .otp-container input:focus {
   outline: none;
+}
+
+@media screen and (max-width: 360px) {
+  /* place here CSS for when the screen is less than 1000px wide */
+  .otp-container input {
+    margin: 0 5px;
+    background: transparent;
+    box-shadow: inset -4px -4px 5px rgba(255, 255, 255, 0.5),
+      inset 4px 4px 5px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(10px);
+    /* Note: backdrop-filter has minimal browser support */
+    border-radius: 5px;
+    height: 35px;
+    width: 35px !important;
+    text-align: center;
+    color: #000;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
 }

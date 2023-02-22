@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getAllStates = async (query) => {
+export const apiGetAllStates = async (query) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
