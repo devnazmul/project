@@ -7,12 +7,19 @@ export const AuthProvider = ({ children }) => {
   const [isLogin, setIsLogin] = useState(false);
   const [token, setToken] = useState("");
   const [userDetails, setUserDetails] = useState({});
+
+  const [jwtCheckTrigger, setJwtCheckTrigger] = useState(Math.random());
+
   useEffect(() => {
-    isLogin &&
-      apiTokenValidation().then((res) => {
-        console.log({ res });
-      });
-  }, []);
+    setTimeout(() => {
+      isLogin &&
+        apiTokenValidation().then((res) => {
+          console.log({ res });
+        });
+      setJwtCheckTrigger(Math.random());
+    }, 10000);
+  }, [jwtCheckTrigger]);
+
   const value = {
     isLogin,
     setIsLogin,
