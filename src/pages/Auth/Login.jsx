@@ -2,72 +2,206 @@ import React, { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import loginImage from "../../assets/login.svg";
 import PurpleNewmorfButton from "../../components/Buttons/PurpleNewmorfButton";
-import FormInput from "../../components/Forms/FormInput";
 import { useAuth } from "../../context/AuthProvider";
 // import leftBgElement from "../assets/blobanimation-1.svg";
 import loginBottomImage from "../../assets/login-bottom.png";
 import loginTopImage from "../../assets/login-top.png";
 // import rightBgBallElement from "../assets/003.svg";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { useForm } from "react-hook-form";
+import { toast, Toaster } from "react-hot-toast";
+import { RiEyeCloseLine, RiEyeFill } from "react-icons/ri";
 import { RxCrossCircled } from "react-icons/rx";
+import OtpInput from "react-otp-input";
 import Popup from "reactjs-popup";
+import { apiUserLogin } from "../../apis/auth";
+import FormInput from "../../components/Forms/FormInput";
 import { auth } from "../../firebase.config";
 
 export default function Login() {
   const { setIsLogin, isLogin } = useAuth();
-  const [OTPPopup, setOTPPopup] = useState(false);
+
   const [isLoading, setIsLoading] = useState(false);
-  const [phone, setPhone] = useState("8801924521771");
+  const [formData, setFormData] = useState({});
+
+  const [isOTPLoading, setIsOTPLoading] = useState(false);
+  const [isPassRevealed, setIsPassRevealed] = useState(false);
+  const [recoveryEmail, setRecoveryEmail] = useState("");
+
+  // OTP
+  const [OTPPopup, setOTPPopup] = useState(false);
+  const [otp, setOtp] = useState("");
+
+  // POPUPS
+  const [changePasswordPopup, setChangePasswordPopup] = useState(false);
+
+  // REACT FORM HOOK
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
 
   const navigate = useNavigate();
   const location = useLocation();
-
   const from = location?.state?.from?.pathname || "/";
 
-
-  const onCapchaVerify = () => {
+  // OTP FUNCTIONALITY =======================================
+  const onCapchaVeryfy = () => {
     if (!window.recaptchaVerifier) {
       window.recaptchaVerifier = new RecaptchaVerifier(
         "recaptcha-container",
         {
           size: "invisible",
           callback: (response) => {
-            handelLogin();
+            // reCAPTCHA solved, allow signInWithPhoneNumber.
+            onSignin();
           },
-          "expired-callback": () => {
-            // Response expired. Ask user to solve reCAPTCHA again.
-            // ...
-          },
+          "expired-callback": () => {},
         },
         auth
       );
     }
   };
 
-  const handelLogin = () => {
-    // setLoading(true)
-    onCapchaVerify();
+  const onSignin = (data) => {
+    setIsOTPLoading(true);
+    onCapchaVeryfy();
+
     const appVerifier = window.recaptchaVerifier;
-    const phoneNumber = "+" + phone;
-    signInWithPhoneNumber(auth, phoneNumber, appVerifier)
+
+    signInWithPhoneNumber(auth, data.phone, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
-        setIsLoading(false);
+        setIsOTPLoading(false);
         setOTPPopup(true);
+        toast.success("The OTP is send.");
       })
       .catch((error) => {
-        setIsLoading(false);
+        console.log({ error });
+        toast.error("The OTP is not send! Try again.");
       });
+    setIsOTPLoading(false);
+  };
+
+  const onOTVerify = () => {
+    setIsOTPLoading(true);
+    window.confirmationResult
+      .confirm(otp)
+      .then(async (res) => {
+        setIsLogin(true);
+        setIsOTPLoading(false);
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("Somthing in wrong! Try again.");
+          setIsOTPLoading(false);
+          setOTPPopup(false);
+        }
+      });
+  };
+  // END OTP FUNCTIONALITY =======================================
+  const handleOtpChange = (value) => {
+    setOtp(value);
+  };
+
+  // FORM SUBMITION
+  const onSubmit = (data) => {
+    data.phone = `+${data.phone}`;
+    apiUserLogin(data)
+      .then((res) => {
+        onSignin(data);
+      })
+      .catch((err) => {
+        if (err) {
+          toast.error("Your credentials is wrong! please try again.");
+        }
+      });
+  };
+
+  const submitRecoveryMail = () => {
+    // setIsLoading()
+    console.log({ recoveryEmail });
   };
   if (isLogin) {
     return navigate(from, { replace: true });
   }
   return (
-    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] px-5 py-5 md:px-10 md:py-10 h-screen">
+    <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] sm:px-5 sm:py-5 md:px-10 md:py-10 h-screen">
       <div id="recaptcha-container"></div>
-      <Popup open={OTPPopup}>OTP</Popup>
+      <Toaster position="top-center" />
+
+      <Popup className="otp-popup" open={OTPPopup}>
+        <div className="flex justify-center items-center h-full w-full">
+          <div className="relative w-[400px] p-5 rounded-lg shadow-xl bg-gradient-to-tr from-pink-500 to-cyan-300">
+            <button
+              onClick={() => setOTPPopup(false)}
+              className="absolute top-0 right-0 sm:right-1 sm:top-1"
+            >
+              <RxCrossCircled className="text-2xl text-[#000] font-semibold" />
+            </button>
+            <h1 className="text-black font-semibold text-xl mb-2">
+              OTP Verification
+            </h1>
+            <p className="text-[13px] text-white px-1 sm:px-3">
+              We already sended a OTP to your phone Please enter your code and
+              verify your account.
+            </p>
+            <div className="flex justify-center items-center h-[100px] sm:h-[130px]">
+              <OtpInput
+                value={otp}
+                onChange={handleOtpChange}
+                numInputs={6}
+                className={`otp-container`}
+              />
+            </div>
+            <PurpleNewmorfButton
+              isLoading={isOTPLoading}
+              handler={onOTVerify}
+              title={"Verify"}
+              extra_class={`px-10 py-2 my-1 sm:my-2 text-white font-semibold`}
+            />
+          </div>
+        </div>
+      </Popup>
+
+      <Popup className="otp-popup" open={changePasswordPopup}>
+        <div className="flex justify-center items-center h-full w-full">
+          <div className="relative w-[400px] p-5 rounded-lg shadow-xl bg-gradient-to-tr from-pink-500 to-cyan-300">
+            <button
+              onClick={() => setChangePasswordPopup(false)}
+              className="absolute top-0 right-0 sm:right-1 sm:top-1"
+            >
+              <RxCrossCircled className="text-2xl text-[#000] font-semibold" />
+            </button>
+            <h1 className="text-black font-semibold text-xl mb-2">
+              Recovery Password
+            </h1>
+            <p className="text-[13px] text-white px-1 sm:px-3">
+              We will send you a password recovery link to your email address.
+            </p>
+            <div className="flex justify-center items-center h-[100px] sm:h-[130px]">
+              <FormInput
+                handler={(e) => setRecoveryEmail(e.target.value)}
+                name={"recEmail"}
+                extra_class={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black`}
+                placeholder={"enter your email"}
+                type="email"
+              />
+            </div>
+            <PurpleNewmorfButton
+              isLoading={isLoading}
+              handler={submitRecoveryMail}
+              title={"Verify"}
+              extra_class={`px-10 py-2 my-1 sm:my-2 text-white font-semibold`}
+            />
+          </div>
+        </div>
+      </Popup>
+
       <div className="h-full backdrop-filter-blur bg-clip-padding backdrop-filter backdrop-blur-xl bg-opacity-50 border border-white  rounded-3xl overflow-hidden w-full loginGlass text-slate-200 relative">
-        <div className="rounded-3xl h-full max-w-full w-full px-20 py-4 flex  flex-col md:flex-row justify-center items-center">
+        <div className="rounded-3xl h-full max-w-full w-full px-2 sm:px-20 py-4 flex  flex-col md:flex-row justify-center items-center">
           <div className="w-full h-full flex justify-around items-center">
             <img
               className="hidden lg:block h-[450px]"
@@ -98,30 +232,77 @@ export default function Login() {
                 </p>
                 <form
                   className="relative z-10 flex flex-col justify-center w-full items-center"
-                  action=""
+                  onSubmit={handleSubmit(onSubmit)}
                 >
-                  <FormInput
-                    extra_class={`py-3 px-3 text-black my-3 w-full placeholder:text-black`}
-                    name="phone"
-                    placeholder={"phone number"}
-                    type="text"
-                  />
-                  <FormInput
-                    extra_class={`py-3 px-3 text-black my-3 w-full placeholder:text-black`}
-                    name="password"
-                    placeholder={"password"}
-                    type="text"
-                  />
-                  <div className=" w-full">
-                    <button className="text-left text-primaryPurple">
-                      Forgot password?
-                    </button>
+                  <span className="w-full block mt-5">
+                    <input
+                      {...register("phone", {
+                        required: "* Phone is required!",
+                      })}
+                      className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black ${
+                        errors?.phone && "border border-red-600"
+                      }`}
+                      step="any"
+                      placeholder={"+91 ___"}
+                      type="number"
+                    />
+                    {errors?.phone && (
+                      <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+                        {errors?.phone?.message}
+                      </span>
+                    )}
+                  </span>
+
+                  <div className="w-full mt-5 block">
+                    <span className="w-full block relative">
+                      <input
+                        {...register("password", {
+                          required: "* Password is required!",
+                          minLength: {
+                            value: 8,
+                            message:
+                              "* Password must be contain at least 8 character",
+                          },
+                        })}
+                        name="password"
+                        type={`${isPassRevealed ? "text" : "password"}`}
+                        placeholder="password"
+                        className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+                          errors?.password && "border border-red-600"
+                        }`}
+                      />
+                      <RiEyeCloseLine
+                        onClick={() => setIsPassRevealed(!isPassRevealed)}
+                        className={`${
+                          isPassRevealed ? "hidden" : "block"
+                        } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
+                      />
+                      <RiEyeFill
+                        onClick={() => setIsPassRevealed(!isPassRevealed)}
+                        className={`${
+                          !isPassRevealed ? "hidden" : "block"
+                        } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
+                      />
+                    </span>
+                    {errors?.password && (
+                      <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+                        {errors?.password?.message}
+                      </span>
+                    )}
                   </div>
+
+                  <button
+                    className="self-start text-left text-primaryPurple mt-5 mb-2 pl-2"
+                    onClick={() => setChangePasswordPopup(true)}
+                  >
+                    Forgot password?
+                  </button>
+
                   <PurpleNewmorfButton
-                    handler={handelLogin}
-                    isLoading={isLoading}
-                    extra_class={`w-1/2 py-2 px-2 text-white font-semibold my-5`}
-                    title={"Login"}
+                    type="submit"
+                    title={"Submit"}
+                    isLoading={isOTPLoading}
+                    extra_class={`px-10 py-2 my-3 font-semibold`}
                   />
                 </form>
                 <p className="text-center z-30 block text-black">
@@ -132,7 +313,7 @@ export default function Login() {
                     }}
                     className="text-primaryPurple"
                   >
-                    Sign Up 
+                    Sign Up
                   </button>
                 </p>
               </div>
