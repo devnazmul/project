@@ -8,10 +8,7 @@ import AdminDashboard from './layouts/AdminDashboard';
 import MainLayout from './layouts/MainLayout';
 import UserDashboard from './layouts/UserDashboard';
 import About from './pages/About';
-import Brand from './pages/AdminDashboard/Brand';
-import Order from './pages/AdminDashboard/Order';
-import ServiceMaster from './pages/AdminDashboard/ServiceMaster/ServiceMaster';
-import User from './pages/AdminDashboard/User';
+import { Brand, CityMaster, Order, ServiceMaster, User } from './pages/AdminDashboard';
 import Login from './pages/Auth/Login';
 import Registration from './pages/Auth/Registration';
 import Blog from './pages/Blog';
@@ -84,7 +81,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/profile",
-    element: <ProtectedRoute><UserDashboard /></ProtectedRoute>,
+    element: <UserDashboard />,
     errorElement: <ErrorPage />,
     children: [
       {
@@ -129,6 +126,10 @@ const router = createBrowserRouter([
       {
         path: "/admin/dashboard/serviceMaster",
         element: <ServiceMaster />
+      },
+      {
+        path: "/admin/dashboard/cityMaster",
+        element: <CityMaster />
       },
     ]
   },

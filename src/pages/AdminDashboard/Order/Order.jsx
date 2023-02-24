@@ -13,13 +13,7 @@ const Order = () => {
                         <th>Mobile Number</th>
                         <th>Service</th>
                         <th>Slot</th>
-                        <th>Pickup require on not</th>
-                        <th>Service Status</th>
-                        <th>Brand</th>
                         <th>Model</th>
-                        <th>CC</th>
-                        <th>State</th>
-                        <th>City</th>
                         <th>Address</th>
                         <th>Map Location</th>
                         <th>Payment Status</th>

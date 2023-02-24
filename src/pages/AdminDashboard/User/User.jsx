@@ -13,6 +13,7 @@ export default function User() {
                         <th>mobil number</th>
                         <th>state</th>
                         <th>city</th>
+                        <th>role</th>
                         <th>signup date</th>
                     </tr>
                 </thead>
@@ -40,12 +41,13 @@ export default function User() {
                     {/* <!-- row 3 --> */}
                     <tr>
                         <th>3</th>
-                        <td>Brice Swyre</td>
-                        <td>Tax Accountant</td>
-                        <td>Red</td>
-                        <td>Red</td>
-                        <td>Red</td>
-                        <td>Red</td>
+                        <td>name</td>
+                        <td>email</td>
+                        <td>mobile number</td>
+                        <td>state</td>
+                        <td>city</td>
+                        <td>admin</td>
+                        <td>date</td>
                     </tr>
                 </tbody>
             </table>
