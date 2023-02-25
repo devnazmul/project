@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
 import './index.css';
@@ -28,7 +29,7 @@ import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
 // API BASE URL 
-axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+// axios.defaults.baseURL = 'http://localhost:8080/api/v1'
 
 const router = createBrowserRouter([
   {
@@ -136,13 +137,18 @@ const router = createBrowserRouter([
 
 ]);
 
+// Create a client
+const queryClient = new QueryClient()
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <AllContextProvider>
-    <React.StrictMode>
-      <RouterProvider router={router} />
-    </React.StrictMode>
-  </AllContextProvider>
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <AllContextProvider>
+        <RouterProvider router={router} />
+      </AllContextProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
 );
 
 reportWebVitals();

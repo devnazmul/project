@@ -15,13 +15,11 @@ const DashboardNav = () => {
         { id: 3, name: "Order", link: "/admin/dashboard/order", icon: <FiShoppingCart /> },
         { id: 4, name: "Service Master", link: "/admin/dashboard/serviceMaster", icon: <TbReportAnalytics /> },
         { id: 5, name: "City Master", link: "/admin/dashboard/cityMaster", icon: <FiFolder /> },
-        { id: 6, name: "Saved", link: "#", icon: <AiOutlineHeart /> },
-        { id: 7, name: "Setting", link: "#", icon: <RiSettings4Line /> },
     ];
 
     return (
         <aside
-            className={`bg-teal-600  min-h-screen ${open ? "w-72" : "w-16"
+            className={`bg-teal-600 h-full ${open ? "w-72" : "w-16"
                 } duration-500 text-gray-100 px-4`}
         >
             <div className="py-3 flex justify-end">

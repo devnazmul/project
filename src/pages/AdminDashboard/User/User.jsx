@@ -1,56 +1,32 @@
-import React from 'react'
+import axios from 'axios';
+import React from 'react';
+import { useEffect } from 'react';
+import { useQuery } from 'react-query';
 
 export default function User() {
+    // const { data } = useQuery('allUser', () =>
+    //     axios.get('https://bikefixup-backend.vercel.app//api/v1/dashboard/user/read')
+    //         .then(result => {
+    //             const data = result.data;
+    //             console.log(data);
+    //         })
+    // )
+    // console.log(data);
+
+    useEffect(() => {
+        fetch('https://bikefixup-backend.vercel.app//api/v1/dashboard/user/read')
+            .then(res => res.json())
+            .then(result => {
+                // const data = result.data;
+                console.log(result);
+            })
+    }, []);
+
+
+
     return (
-        <div className="overflow-x-auto">
-            <table className="table w-full">
-                {/* <!-- head --> */}
-                <thead>
-                    <tr>
-                        <th></th>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>mobil number</th>
-                        <th>state</th>
-                        <th>city</th>
-                        <th>role</th>
-                        <th>signup date</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {/* <!-- row 1 --> */}
-                    <tr>
-                        <th>1</th>
-                        <td>Cy Ganderton</td>
-                        <td>Quality Control Specialist</td>
-                        <td>Blue</td>
-                        <td>Blue</td>
-                        <td>Blue</td>
-                        <td>Blue</td>
-                    </tr>
-                    {/* <!-- row 2 --> */}
-                    <tr className="hover">
-                        <th>2</th>
-                        <td>Hart Hagerty</td>
-                        <td>Desktop Support Technician</td>
-                        <td>Purple</td>
-                        <td>Purple</td>
-                        <td>Purple</td>
-                        <td>Purple</td>
-                    </tr>
-                    {/* <!-- row 3 --> */}
-                    <tr>
-                        <th>3</th>
-                        <td>name</td>
-                        <td>email</td>
-                        <td>mobile number</td>
-                        <td>state</td>
-                        <td>city</td>
-                        <td>admin</td>
-                        <td>date</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div className="">
+
         </div>
     );
 };
