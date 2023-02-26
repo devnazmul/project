@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import loginImage from "../../assets/login.svg";
-import PurpleNewmorfButton from "../../components/Buttons/PurpleNewmorfButton";
-import { useAuth } from "../../context/AuthProvider";
-// import leftBgElement from "../assets/blobanimation-1.svg";
-import loginBottomImage from "../../assets/login-bottom.png";
-import loginTopImage from "../../assets/login-top.png";
-// import rightBgBallElement from "../assets/003.svg";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { toast, Toaster } from "react-hot-toast";
 import { RiEyeCloseLine, RiEyeFill } from "react-icons/ri";
 import { RxCrossCircled } from "react-icons/rx";
 import OtpInput from "react-otp-input";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
 import { apiUserLogin } from "../../apis/auth";
+import loginBottomImage from "../../assets/login-bottom.png";
+import loginTopImage from "../../assets/login-top.png";
+import loginImage from "../../assets/login.svg";
+import PurpleNewmorfButton from "../../components/Buttons/PurpleNewmorfButton";
 import FormInput from "../../components/Forms/FormInput";
+import { useAuth } from "../../context/AuthProvider";
 import { auth } from "../../firebase.config";
 
 export default function Login() {
