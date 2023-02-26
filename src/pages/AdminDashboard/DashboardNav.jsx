@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { AiOutlineUser } from "react-icons/ai";
+import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
 import { HiMenuAlt3 } from "react-icons/hi";
-import { RiSettings4Line } from "react-icons/ri";
 import { TbReportAnalytics } from "react-icons/tb";
-import { AiOutlineUser, AiOutlineHeart } from "react-icons/ai";
-import { FiMessageSquare, FiFolder, FiShoppingCart } from "react-icons/fi";
+import { NavLink } from "react-router-dom";
 
 const DashboardNav = () => {
     const [open, setOpen] = useState(true);
@@ -19,9 +18,7 @@ const DashboardNav = () => {
 
     return (
         <aside
-            className={`bg-teal-600 h-full ${open ? "w-72" : "w-16"
-                } duration-500 text-gray-100 px-4`}
-        >
+            className={`bg-primary overflow-hidden h-full ${open ? "w-72" : "w-16"} duration-500 text-gray-100 px-4`} >
             <div className="py-3 flex justify-end">
                 <HiMenuAlt3
                     size={26}
@@ -35,7 +32,7 @@ const DashboardNav = () => {
                         <NavLink
                             key={menu.id}
                             to={menu?.link}
-                            className={`group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-teal-900 rounded-md`}
+                            className={`group flex items-center text-sm  gap-3.5 font-medium p-2 hover:bg-teal-900 rounded-box`}
                         >
                             <div className="text-xl">
                                 {menu?.icon}
