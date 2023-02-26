@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Nav({ theme,setTheme }) {
+export default function Nav({ theme, setTheme }) {
   const themes = [
     "light",
     "dark",
@@ -44,7 +44,7 @@ export default function Nav({ theme,setTheme }) {
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 ">
               <li tabIndex={0}>
-                <buton>
+                <button>
                   Themes
                   <svg
                     className="fill-current"
@@ -55,11 +55,11 @@ export default function Nav({ theme,setTheme }) {
                   >
                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                   </svg>
-                </buton>
-                <ul className="p-2 bg-base-300 mt-5 h-96 overflow-y-scroll">
+                </button>
+                <ul className="p-2 z-50 bg-base-300 mt-5 h-96 overflow-y-scroll">
                   {themes.map((theme, i) => (
                     <li key={i}>
-                      <button onClick={()=>setTheme(theme)}>{theme}</button>
+                      <button onClick={() => setTheme(theme)}>{theme}</button>
                     </li>
                   ))}
                 </ul>

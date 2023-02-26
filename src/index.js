@@ -21,7 +21,6 @@ import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
 import Partners from './pages/Partners';
-import { ProtectedRoute } from './pages/ProtectedRoute/ProtectedRoute';
 import BecomePartner from './pages/UserProfile/BecomePartner';
 import MyBooking from './pages/UserProfile/MyBooking';
 import MyVehicles from './pages/UserProfile/MyVehicles';
@@ -29,7 +28,8 @@ import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
 // API BASE URL 
-// axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+// axios.defaults.baseURL = 'https://bikefixup-backend.vercel.app/api/v1'
 
 const router = createBrowserRouter([
   {
