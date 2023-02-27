@@ -37,13 +37,25 @@ export default function Table({
                     <td key={j}>{data[col]}</td>
                   ))}
                   <td className="flex justify-evenly">
-                    <button onClick={()=>handleView(data?.id)} title="details" className="btn-secondary p-2 rounded-full hover:btn-secondary-focus">
+                    <button
+                      onClick={() => handleView(data?.id)}
+                      title="details"
+                      className="btn-secondary p-2 rounded-full hover:btn-secondary-focus"
+                    >
                       <AiOutlineEye className="text-md" />
                     </button>
-                    <button onClick={()=>handleEdit(data?.id)} title="edit" className="btn-primary p-2 rounded-full hover:btn-primary-focus">
+                    <button
+                      onClick={() => handleEdit(data?.id)}
+                      title="edit"
+                      className="btn-primary p-2 rounded-full hover:btn-primary-focus"
+                    >
                       <FiEdit className="text-md" />
                     </button>
-                    <button onClick={()=>handleDelete(data?.id)} title="delete" className="btn-error p-2 rounded-full hover:bg-opacity-80">
+                    <button
+                      onClick={() => handleDelete(data?.id)}
+                      title="delete"
+                      className="btn-error p-2 rounded-full hover:bg-opacity-80"
+                    >
                       <MdDelete className="text-md" />
                     </button>
                   </td>
@@ -86,6 +98,7 @@ export default function Table({
           </tr>
         </tfoot>
       </table>
+
       <div className="py-2 px-2 flex w-full justify-end items-center gap-2">
         <label htmlFor="perPage">per page:</label>
         <select

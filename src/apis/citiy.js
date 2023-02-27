@@ -1,24 +1,16 @@
-
 import axios from "axios";
 
-export const apiGetAllCities = async (query) => {
+export const apiGetAllCities = async (pageNo, dataPerPage, query) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
             'Accept': 'application/json',
+            "Authorization": `Bearer ${JSON.parse(localStorage.getItem('data')).token}`
         },
     };
-    let link=`/dashboard/city/read`
-
-    if (query?.id) {
-        link=`/dashboard/city/read?id=${query?.id}`
-    }
-    if (query?.search) {
-        link=`/dashboard/city/read?search=${query?.search}`
-    }
-
-    return await axios.get(link, config)
+    console.log({pageNo})
+    return await axios.get(`/dashboard/brand/read?pageNo=${pageNo}&dataPerPage=${dataPerPage}&search=${query}`, config)
         .then(res => {
             return res;
         })
-} 
+}
