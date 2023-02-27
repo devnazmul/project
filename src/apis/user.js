@@ -8,10 +8,8 @@ export const apiGetAllUsers = async (pageNo, dataPerPage, query) => {
             "Authorization": `Bearer ${JSON.parse(localStorage.getItem('data')).token}`
         },
     };
-    return await axios.get(`/dashboard/user/read?search=${query}`, {
-        "pageNo": pageNo,
-        "dataPerPage": dataPerPage
-    }, config)
+    console.log({pageNo})
+    return await axios.get(`/dashboard/user/read?pageNo=${pageNo}&dataPerPage=${dataPerPage}&search=${query}`, config)
         .then(res => {
             return res;
         })

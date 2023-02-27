@@ -6,17 +6,14 @@ import Pagination from "../../../components/Pagination/Pagination";
 export default function User() {
   const [users, setUsers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-
-  const [perPage, setPerPage] = useState(1);
+  const [perPage, setPerPage] = useState(5);
   const [pageNo, setPageNo] = useState(1);
-
   const [totalData, setTotalData] = useState(0);
-
   const [query, setQuery] = useState("");
 
   useEffect(() => {
     setIsLoading(true);
-    apiGetAllUsers(pageNo, perPage,query)
+    apiGetAllUsers(pageNo, perPage, query)
       .then((res) => {
         setIsLoading(false);
         setTotalData(res?.data?.data?.total_data);
@@ -34,7 +31,7 @@ export default function User() {
         <input
           onChange={(e) => setQuery(e.target.value)}
           type="text"
-          placeholder="Type here"
+          placeholder="Search here"
           className="input input-bordered input-md w-full max-w-xs"
         />
       </div>
@@ -42,7 +39,12 @@ export default function User() {
         <Table
           isLoading={isLoading}
           rows={users}
+          perPage={perPage}
+          setPerPage={setPerPage}
           cols={["name", "email", "phone", "state", "city"]}
+          handleView={() => {}}
+          handleEdit={() => {}}
+          handleDelete={() => {}}
         />
       </div>
 

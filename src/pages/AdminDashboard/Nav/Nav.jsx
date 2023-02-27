@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function Nav({ theme, setTheme }) {
+export default function Nav() {
+  const [theme, setTheme] = useState(localStorage.getItem('admin-theme')?localStorage.getItem('admin-theme'):'light');
+
   const themes = [
     "light",
     "dark",
@@ -41,9 +43,9 @@ export default function Nav({ theme, setTheme }) {
       <div className="flex-1"></div>
       <div className="flex-none gap-2">
         <div className="form-control">
-          <div className="navbar-center hidden lg:flex">
+          <div className="navbar-center flex">
             <ul className="menu menu-horizontal px-1 ">
-              <li tabIndex={0}>
+              <li>
                 <button>
                   Themes
                   <svg
@@ -56,10 +58,22 @@ export default function Nav({ theme, setTheme }) {
                     <path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z" />
                   </svg>
                 </button>
-                <ul className="p-2 z-50 bg-base-300 mt-5 h-96 overflow-y-scroll">
+                <ul
+                  id="themeDrop"
+                  className="p-2 z-50 bg-base-300 mt-0 h-96 overflow-y-scroll"
+                >
                   {themes.map((theme, i) => (
                     <li key={i}>
-                      <button onClick={() => setTheme(theme)}>{theme}</button>
+                      <button
+                        onClick={() => {
+                          JSON.parse(
+                            localStorage.setItem("admin-theme", theme)
+                          );
+                          setTheme(theme);
+                        }}
+                      >
+                        {theme}
+                      </button>
                     </li>
                   ))}
                 </ul>

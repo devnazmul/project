@@ -4,7 +4,7 @@ import ReactPaginate from "react-paginate";
 export default function Pagination({ itemsPerPage, totalItems, setPageNo }) {
   const pageCount = Math.ceil(totalItems / itemsPerPage);
   const handlePageClick = (event) => {
-    setPageNo(event.selected);
+    setPageNo(event.selected+1);
   };
 
   return (

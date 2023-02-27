@@ -7,9 +7,15 @@ import { NavLink } from "react-router-dom";
 
 const DashboardNav = () => {
   const [open, setOpen] = useState(true);
+  const initialPath = '/admin/dashboard'
 
   const menus = [
-    { id: 1, name: "user", link: "/admin/dashboard", icon: <AiOutlineUser /> },
+    {
+      id: 1,
+      name: "user",
+      link: "/admin/dashboard/user",
+      icon: <AiOutlineUser />,
+    },
     {
       id: 2,
       name: "Brand",
@@ -40,7 +46,7 @@ const DashboardNav = () => {
     <aside
       className={`bg-primary overflow-hidden h-full ${
         open ? "w-72" : "w-16"
-      } duration-500 text-gray-100 px-3`}
+      } duration-500 px-3 text-primary-content`}
     >
       <div className="py-3 flex justify-end">
         <HiMenuAlt3
@@ -54,11 +60,15 @@ const DashboardNav = () => {
           <NavLink
             key={menu.id}
             to={menu?.link}
-            className={({ isActive }) => `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content ${isActive ? 'bg-secondary' : undefined} rounded-box`}
+            className={({ isActive }) =>
+              `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content hover:text-primary ${
+                isActive && window.location.pathname !== initialPath ? "bg-secondary" : undefined
+              } rounded-box`
+            }
           >
             <div className="text-xl">{menu?.icon}</div>
             <h2
-              className={`whitespace-pre duration-500 ${
+              className={`whitespace-pre duration-500  ${
                 !open && "opacity-0 translate-x-28 overflow-hidden"
               }`}
             >

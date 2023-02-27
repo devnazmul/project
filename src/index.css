@@ -44,11 +44,12 @@ body {
 }
 
 .serviceCard {
-  background: radial-gradient(100% 100% at 0% 9.33%,
+  background: radial-gradient(
+      100% 100% at 0% 9.33%,
       rgba(255, 255, 255, 0.6) 0%,
-      rgba(255, 255, 255, 0.18) 100%)
-    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
-  ;
+      rgba(255, 255, 255, 0.18) 100%
+    )
+    /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 }
@@ -59,9 +60,11 @@ body {
 
 /* =========================== HERO ==============================  */
 .heroFormGlassDiv {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -72,9 +75,11 @@ body {
 }
 
 .formGlassInput {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.1) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: inset -4px -4px 10px rgba(255, 255, 255, 0.5),
     inset 4px 4px 10px rgba(0, 0, 0, 0.25);
@@ -85,23 +90,29 @@ body {
 }
 
 .mobileSectionGlass {
-  background: linear-gradient(311.99deg,
+  background: linear-gradient(
+      311.99deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 56.66%),
+      rgba(255, 255, 255, 0) 56.66%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
   border: 3px solid;
-  border-image-source: linear-gradient(171.23deg,
-      #ffffff 1.93%,
-      rgba(255, 255, 255, 0) 104.85%);
+  border-image-source: linear-gradient(
+    171.23deg,
+    #ffffff 1.93%,
+    rgba(255, 255, 255, 0) 104.85%
+  );
   border-radius: 20px;
 }
 
 .serviceMobileSecGleass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -129,18 +140,22 @@ body {
 }
 
 .benifitSectionCardGlass {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0) 100%),
+      rgba(255, 255, 255, 0) 100%
+    ),
     rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(2px);
   border-radius: 20px;
 }
 
 .testimonialGlass {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 100%),
+      rgba(255, 255, 255, 0) 100%
+    ),
     rgba(255, 255, 255, 0.3);
   opacity: 0.8;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
@@ -163,9 +178,11 @@ body {
 
 /* =================================== ABOUT ====================================  */
 .aboutHeroGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -175,9 +192,11 @@ body {
 }
 
 .aboutGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -187,9 +206,11 @@ body {
 }
 
 .aboutOneStepGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -199,9 +220,11 @@ body {
 }
 
 .aboutOurTeamGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -212,9 +235,11 @@ body {
 
 /* ===================================== MEMBERSHIP ============================== */
 .heroGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.291) 0%,
-      rgba(255, 255, 255, 0.157) 74.7%),
+      rgba(255, 255, 255, 0.157) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(20px);
@@ -224,9 +249,11 @@ body {
 }
 
 .palnGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -236,9 +263,11 @@ body {
 }
 
 .planCardHead {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -249,9 +278,11 @@ body {
 
 /* ==================================== BLOG ===================================  */
 .blogPostCardGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -260,9 +291,11 @@ body {
 
 /* ================================ CEREER ===================================  */
 .jobCardGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -270,9 +303,11 @@ body {
 
 /* ================================ PARTNER ================================  */
 .partnerMarketPotential {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -280,9 +315,11 @@ body {
 }
 
 .partnerAfterSaleSupGlassCard {
-  background: linear-gradient(118.39deg,
-      rgba(255, 255, 255, 0.27) 1.28%,
-      rgba(10, 9, 35, 0) 106.47%);
+  background: linear-gradient(
+    118.39deg,
+    rgba(255, 255, 255, 0.27) 1.28%,
+    rgba(10, 9, 35, 0) 106.47%
+  );
 
   filter: drop-shadow(30px 10px 150px rgba(215, 215, 215, 0.5));
   backdrop-filter: blur(50px);
@@ -292,9 +329,11 @@ body {
 }
 
 .USPSGlass {
-  background: linear-gradient(180deg,
+  background: linear-gradient(
+      180deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 100%),
+      rgba(255, 255, 255, 0) 100%
+    ),
     rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(2px);
   /* Note: backdrop-filter has minimal browser support */
@@ -305,9 +344,11 @@ body {
 
 /* ================================= Profile Dashboard ===========================  */
 .profileLayoutGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -318,9 +359,11 @@ body {
 }
 
 .profileDashboardAsideGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -330,9 +373,11 @@ body {
 }
 
 .profileDashboardContainerGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.1);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -341,9 +386,11 @@ body {
 
 /* =================================== LOGIN =================================  */
 .loginGlass {
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(15px);
@@ -357,9 +404,11 @@ body {
   padding: 10px;
   height: 100%;
   width: 100%;
-  background: linear-gradient(155.31deg,
+  background: linear-gradient(
+      155.31deg,
       rgba(255, 255, 255, 0.2) 0%,
-      rgba(255, 255, 255, 0) 74.7%),
+      rgba(255, 255, 255, 0) 74.7%
+    ),
     rgba(255, 255, 255, 0.05);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(10px);
@@ -394,7 +443,6 @@ body {
 }
 
 @media screen and (max-width: 360px) {
-
   /* place here CSS for when the screen is less than 1000px wide */
   .otp-container input {
     margin: 0 5px;

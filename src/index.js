@@ -113,7 +113,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
     children: [
       {
-        path: "/admin/dashboard",
+        path: "/admin/dashboard/user",
         element: <User />
       },
       {
