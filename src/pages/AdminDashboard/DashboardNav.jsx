@@ -1,13 +1,17 @@
 import React, { useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { FiFolder, FiMessageSquare, FiShoppingCart } from "react-icons/fi";
+import { FiShoppingCart } from "react-icons/fi";
+import { RiCoupon5Line } from "react-icons/ri";
+import { CiCoffeeBean } from "react-icons/ci";
 import { HiMenuAlt3 } from "react-icons/hi";
+import { FaCity, FaProjectDiagram, FaUsers } from "react-icons/fa";
+import { SiBrandfolder } from "react-icons/si";
 import { TbReportAnalytics } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 
 const DashboardNav = () => {
   const [open, setOpen] = useState(true);
-  const initialPath = '/admin/dashboard'
+  const initialPath = "/admin/dashboard";
 
   const menus = [
     {
@@ -20,7 +24,7 @@ const DashboardNav = () => {
       id: 2,
       name: "Brand",
       link: "/admin/dashboard/brand",
-      icon: <FiMessageSquare />,
+      icon: <SiBrandfolder />,
     },
     {
       id: 3,
@@ -38,7 +42,31 @@ const DashboardNav = () => {
       id: 5,
       name: "City Master",
       link: "/admin/dashboard/cityMaster",
-      icon: <FiFolder />,
+      icon: <FaCity />,
+    },
+    {
+      id: 6,
+      name: "Coupon",
+      link: "/admin/dashboard/coupon",
+      icon: <RiCoupon5Line />,
+    },
+    {
+      id: 7,
+      name: "Offer",
+      link: "/admin/dashboard/offer",
+      icon: <CiCoffeeBean />,
+    },
+    {
+      id: 8,
+      name: "Membership Data",
+      link: "/admin/dashboard/membershipData",
+      icon: <FaUsers />,
+    },
+    {
+      id: 9,
+      name: "Policies Master",
+      link: "/admin/dashboard/policiesMaster",
+      icon: <FaProjectDiagram />,
     },
   ];
 
@@ -62,7 +90,9 @@ const DashboardNav = () => {
             to={menu?.link}
             className={({ isActive }) =>
               `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content hover:text-primary ${
-                isActive && window.location.pathname !== initialPath ? "bg-secondary" : undefined
+                isActive && window.location.pathname !== initialPath
+                  ? "bg-secondary"
+                  : undefined
               } rounded-box`
             }
           >
