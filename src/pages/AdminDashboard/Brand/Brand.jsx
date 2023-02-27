@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import BrandModal from "./BrandModal";
 import Table from "../../../components/Admin/Table/Table";
 import Pagination from "../../../components/Pagination/Pagination";
+import { useEffect } from "react";
+import { apiGetAllBrands } from "../../../apis/brand";
 
 export default function Brand() {
   const [brands, setBrands] = useState([]);
@@ -10,6 +12,20 @@ export default function Brand() {
   const [pageNo, setPageNo] = useState(1);
   const [totalData, setTotalData] = useState(0);
   const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    setIsLoading(true);
+    apiGetAllBrands(pageNo, perPage, query)
+      .then((res) => {
+        setIsLoading(false);
+        setTotalData(res?.data?.data?.total_data);
+        setBrands(res?.data?.data?.result);
+        console.log(res?.data);
+      })
+      .catch((error) => {
+        console.log({ error });
+      });
+  }, [perPage, pageNo, query]);
 
   return (
     <section>
