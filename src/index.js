@@ -28,8 +28,8 @@ import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
 // API BASE URL 
-axios.defaults.baseURL = 'http://localhost:8080/api/v1'
-// axios.defaults.baseURL = 'https://bikefixup-backend.vercel.app/api/v1'
+// axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+axios.defaults.baseURL = 'https://bikefixup-backend.vercel.app/api/v1'
 
 const router = createBrowserRouter([
   {
