@@ -1,35 +1,110 @@
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import PurpleNewmorfButton from "../Buttons/PurpleNewmorfButton";
 import FormDiv from "../Forms/FormDiv";
-import FormInput from "../Forms/FormInput";
 
 export default function HeroForm() {
+  const [step, setStep] = useState(1);
+  const [formData, setFormData] = useState();
+
+  // REACT FORM HOOK
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+
+  // FORM SUBMITION
+  const onSubmit = (data) => {
+    console.log({ data });
+  };
   return (
     <div>
       <FormDiv>
         <h2 className="text-primaryPurple text-center font-semibold text-2xl mb-[24px] mt-[32px]">
           Book Bike Service
         </h2>
-        <FormInput
-          extra_class={`w-full h-[45px] px-[27px] py-2 mb-[15px] text-black`}
-          placeholder={"Your Name"}
+        <input
+          {...register("name", {
+            required: "* Name is required!",
+          })}
+          name="name"
+          type={"text"}
+          placeholder="Your Name"
+          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+            errors?.name && "border border-red-600"
+          }`}
         />
-        <FormInput
-          extra_class={`w-full h-[45px] px-[27px] py-2 mb-[15px] text-black`}
-          placeholder={"Phone Number"}
+        {errors?.phone && (
+          <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+            {errors?.name?.message}
+          </span>
+        )}
+        <input
+          {...register("phone", {
+            required: "* Phone Number is required!",
+          })}
+          name="phone"
+          type={"text"}
+          placeholder="Phone Number"
+          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+            errors?.phone && "border border-red-600"
+          }`}
         />
-        <FormInput
-          extra_class={`w-full h-[45px] px-[27px] py-2 mb-[15px] text-black`}
-          placeholder={"E-mail"}
+        {errors?.phone && (
+          <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+            {errors?.phone?.message}
+          </span>
+        )}
+        <input
+          {...register("email", {
+            required: "* E-mail Number is required!",
+          })}
+          name="email"
+          type={"email"}
+          placeholder="E-mail"
+          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+            errors?.email && "border border-red-600"
+          }`}
         />
-        <FormInput
-          extra_class={`w-full h-[45px] px-[27px] py-2 mb-[15px] text-black`}
-          placeholder={"Address"}
+        {errors?.email && (
+          <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+            {errors?.phone?.message}
+          </span>
+        )}
+        <input
+          {...register("address", {
+            required: "* Address Number is required!",
+          })}
+          name="address"
+          type={"text"}
+          placeholder="Address"
+          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+            errors?.address && "border border-red-600"
+          }`}
         />
-        <FormInput
-          extra_class={`w-full h-[45px] px-[27px] py-2 mb-[15px] text-black`}
-          placeholder={"City"}
+        {errors?.address && (
+          <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+            {errors?.phone?.message}
+          </span>
+        )}
+        <input
+          {...register("email", {
+            required: "* E-mail Number is required!",
+          })}
+          name="email"
+          type={"text"}
+          placeholder="E-mail"
+          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
+            errors?.email && "border border-red-600"
+          }`}
         />
+        {errors?.phone && (
+          <span className="text-left pl-2 block w-full text-red-600 text-[11px]">
+            {errors?.phone?.message}
+          </span>
+        )}
         <div className="flex justify-center items-center">
           <PurpleNewmorfButton
             extra_class={`text-center w-8/12 px-10 py-2 mt-5`}
