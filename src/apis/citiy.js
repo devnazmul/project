@@ -1,14 +1,13 @@
 import axios from "axios";
 
-export const apiGetAllCities = async (pageNo) => {
+export const apiGetAllCities = async (state_id) => {
     const config = {
         headers: {
             "Content-Type": "application/json",
             'Accept': 'application/json',
         },
     };
-    console.log({ pageNo })
-    return await axios.get(`/dashboard/city/all-read`, config)
+    return await axios.get(`/dashboard/city/read-all?state_id=${state_id}`,config)
         .then(res => {
             return res;
         }).catch(err => {

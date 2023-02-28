@@ -21,9 +21,18 @@ export default function User() {
         console.log(res?.data);
       })
       .catch((error) => {
-        console.log({ error });
+        console.log(error);
       });
   }, [perPage, pageNo, query]);
+
+  useEffect(() => {
+    console.log("object");
+  }, []);
+
+  console.log(pageNo);
+  console.log(perPage);
+  console.log(query);
+  console.log(totalData);
 
   return (
     <div className="">
