@@ -8,7 +8,7 @@ export const apiTokenValidation = async () => {
             "Authorization": `Bearer ${JSON.parse(localStorage.getItem('data')).token}`
         },
     };
-    return await axios.get('/auth/checkJWTvalidation', config)
+    return await axios.get('/auth/checkJWTvalidation', { name: JSON.parse(localStorage.getItem('data')).user?.name }, config)
         .then(res => {
             return res;
         })
@@ -38,7 +38,6 @@ export const apiUserLogin = async (data) => {
     };
     return await axios.post('/auth/login', data, config)
         .then(res => {
-            localStorage.setItem('data', JSON.stringify(res.data.data))
             return res.data;
         })
 }

@@ -1,7 +1,7 @@
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 import { RiEyeCloseLine, RiEyeFill } from "react-icons/ri";
 import { RxCrossCircled } from "react-icons/rx";
 import OTPInput from "react-otp-input";
@@ -54,7 +54,6 @@ export default function Registration() {
   const selectedState = watch("state_id");
 
   // FORM DATA
-
   const [formData, setFormData] = useState({});
 
   useEffect(() => {
@@ -173,7 +172,6 @@ export default function Registration() {
       ) : (
         <div className="bg-gradient-to-l from-[#83e9fb] to-[#f591d2] sm:px-5 sm:py-5 md:px-10 md:py-10 h-screen">
           <div id="recaptcha-container"></div>
-          <Toaster position="top-center" />
 
           <Popup className="otp-popup" open={OTPPopup}>
             <div className="flex justify-center items-center h-full w-full">

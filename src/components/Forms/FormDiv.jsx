@@ -8,10 +8,10 @@ export default function FormDiv({ children, custom_class }) {
     console.log(isLogin);
   },[isLogin])
   return (
-    <div
+    <form
       className={`heroFormGlassDiv px-5 py-2 md:px-10 md:py-3 ${custom_class}`}
     >
       {children}
-    </div>
+    </form>
   );
 }

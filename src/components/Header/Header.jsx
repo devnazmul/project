@@ -16,12 +16,10 @@ const navigate = useNavigate()
   const [isNavOpened, setIsNavOpened] = useState(false);
   const [responsiveTogleIsOpened, setResponsiveTogleIsOpened] = useState(false);
 
-  const handleLogin = () => {
-    setIsLogin(true);
-  };
 
   const handleLogout = () => {
     setIsLogin(false);
+    localStorage.removeItem('data')
   };
 
   const handleResponsiveToggleNav = () => {

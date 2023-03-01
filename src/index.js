@@ -16,7 +16,6 @@ import Blog from './pages/Blog';
 import Career from './pages/Career';
 import Contact from './pages/Contact';
 import ErrorPage from './pages/Error/ErrorPage';
-import ErrorPageProfile from './pages/Error/ErrorPageProfile';
 import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
@@ -28,8 +27,8 @@ import Profile from './pages/UserProfile/Profile';
 import reportWebVitals from './reportWebVitals';
 
 // API BASE URL 
-// axios.defaults.baseURL = 'http://localhost:8080/api/v1'
-axios.defaults.baseURL = 'https://bike-fixup-backend.vercel.app/api/v1'
+axios.defaults.baseURL = 'http://localhost:8080/api/v1'
+// axios.defaults.baseURL = 'https://bike-fixup-backend.vercel.app/api/v1'
 
 const router = createBrowserRouter([
   {
@@ -85,10 +84,6 @@ const router = createBrowserRouter([
     element: <UserDashboard />,
     errorElement: <ErrorPage />,
     children: [
-      {
-        path: "/profile",
-        element: <ErrorPageProfile />,
-      },
       {
         path: "/profile/dashboard",
         element: <Profile />,

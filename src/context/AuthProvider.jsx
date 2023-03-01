@@ -8,17 +8,23 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState("");
   const [userDetails, setUserDetails] = useState({});
 
-  const [jwtCheckTrigger, setJwtCheckTrigger] = useState(Math.random());
-
   useEffect(() => {
-    setTimeout(() => {
-      isLogin &&
-        apiTokenValidation().then((res) => {
-          console.log({ res });
+    const intervalId = setInterval(() => {
+      !isLogin && localStorage.removeItem('data')
+
+      apiTokenValidation()
+        .then((res) => {
+          console.log({ auth: res });
+        })
+        .catch((err) => {
+          console.log({ err });
+
+          setIsLogin(false);
+          localStorage.removeItem("data");
         });
-      setJwtCheckTrigger(Math.random());
-    }, 10000);
-  }, [jwtCheckTrigger]);
+    }, 5000);
+    return () => clearInterval(intervalId);
+  }, []);
 
   const value = {
     isLogin,
