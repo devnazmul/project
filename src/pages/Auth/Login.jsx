@@ -16,6 +16,7 @@ import FormInput from "../../components/Forms/FormInput";
 import { useAuth } from "../../context/AuthProvider";
 import { auth } from "../../firebase.config";
 
+
 export default function Login() {
   const { setIsLogin, isLogin, userSignin } = useAuth();
   const [userResponseData, setuserResponseData] = useState({});
@@ -70,7 +71,7 @@ export default function Login() {
 
     const appVerifier = window.recaptchaVerifier;
 
-    signInWithPhoneNumber(auth, data.phone, appVerifier)
+    userSignin(data.phone, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
         setIsOTPLoading(false);
@@ -80,6 +81,7 @@ export default function Login() {
       .catch((error) => {
         toast.error("The OTP is not send! refresh the page & try again.");
       });
+
     setIsOTPLoading(false);
   };
 
@@ -102,37 +104,35 @@ export default function Login() {
         }
       });
   };
+
   // END OTP FUNCTIONALITY =======================================
   const handleOtpChange = (value) => {
     setOtp(value);
-  };
+  }
 
   // FORM SUBMITION
   const onSubmit = (data) => {
     data.phone = `+${data.phone}`;
-    const appVerifier = window.recaptchaVerifier;
 
-    userSignin(data.phone, appVerifier)
-      .then(res => {
-
+    apiUserLogin(data)
+      .then((res) => {
+        console.log(res.data)
+        setuserResponseData(res?.data);
+        onSignin(data);
       })
-
-    // apiUserLogin(data)
-    //   .then((res) => {
-    //     setuserResponseData(res?.data);
-    //     onSignin(data);
-    //   })
-    //   .catch((err) => {
-    //     if (err) {
-    //       toast.error("Your credentials is wrong! please try again.");
-    //     }
-    //   });
-  };
+      .catch((err) => {
+        if (err) {
+          toast.error("Your credentials is wrong! please try again.");
+        }
+      });
+  }
 
   const submitRecoveryMail = () => {
     console.log({ recoveryEmail });
   };
+
   console.log({ isLogin });
+
   return (
     <>
       {isLogin ? (

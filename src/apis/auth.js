@@ -37,7 +37,7 @@ export const apiUserLogin = async (data) => {
         },
     };
     return await axios.post('/auth/login', data, config)
-    // .then(res => {
-    //     return res.data;
-    // })
+        .then(res => {
+            return res.data;
+        })
 }

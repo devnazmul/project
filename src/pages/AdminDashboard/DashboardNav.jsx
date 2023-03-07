@@ -72,9 +72,8 @@ const DashboardNav = () => {
 
   return (
     <aside
-      className={`bg-primary overflow-hidden h-full ${
-        open ? "w-72" : "w-16"
-      } duration-500 px-3 text-primary-content`}
+      className={`bg-primary overflow-hidden h-full ${open ? "w-72" : "w-16"
+        } duration-500 px-3 text-primary-content`}
     >
       <div className="py-3 flex justify-end">
         <HiMenuAlt3
@@ -89,18 +88,16 @@ const DashboardNav = () => {
             key={menu.id}
             to={menu?.link}
             className={({ isActive }) =>
-              `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content hover:text-primary ${
-                isActive && window.location.pathname !== initialPath
-                  ? "bg-secondary"
-                  : undefined
+              `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content hover:text-primary ${isActive && window.location.pathname !== initialPath
+                ? "bg-secondary"
+                : undefined
               } rounded-box`
             }
           >
             <div className="text-xl">{menu?.icon}</div>
             <h2
-              className={`whitespace-pre duration-500  ${
-                !open && "opacity-0 translate-x-28 overflow-hidden"
-              }`}
+              className={`whitespace-pre duration-500  ${!open && "opacity-0 translate-x-28 overflow-hidden"
+                }`}
             >
               {menu?.name}
             </h2>

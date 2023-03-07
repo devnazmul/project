@@ -105,11 +105,13 @@ const router = createBrowserRouter([
   },
   {
     path: "/admin/dashboard",
-    element: <ProtectedRoute>
-      <AdminDashboard />
-    </ProtectedRoute>,
+    element: <AdminDashboard />,
     errorElement: <ErrorPage />,
     children: [
+      {
+        index: true,
+        element: <User />
+      },
       {
         path: "/admin/dashboard/user",
         element: <User />
