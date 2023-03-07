@@ -71,7 +71,7 @@ export default function Login() {
 
     const appVerifier = window.recaptchaVerifier;
 
-    userSignin(data.phone, appVerifier)
+    signInWithPhoneNumber(auth, data.phone, appVerifier)
       .then((confirmationResult) => {
         window.confirmationResult = confirmationResult;
         setIsOTPLoading(false);

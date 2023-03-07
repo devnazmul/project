@@ -22,23 +22,23 @@ export const AuthProvider = ({ children }) => {
 
 
 
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      // !isLogin && localStorage.removeItem('data')
+  // useEffect(() => {
+  //   const intervalId = setInterval(() => {
+  //     !isLogin && localStorage.removeItem('data')
 
-      apiTokenValidation()
-        .then((res) => {
-          console.log({ auth: res });
-        })
-        .catch((err) => {
-          console.log({ err });
+  //     apiTokenValidation()
+  //       .then((res) => {
+  //         console.log({ auth: res });
+  //       })
+  //       .catch((err) => {
+  //         console.log({ err });
 
-          setIsLogin(false);
-          // localStorage.removeItem("data");
-        });
-    }, 5000);
-    return () => clearInterval(intervalId);
-  }, []);
+  //         setIsLogin(false);
+  //         localStorage.removeItem("data");
+  //       });
+  //   }, 5000);
+  //   return () => clearInterval(intervalId);
+  // }, []);
 
   // auth information 
   const authInfo = {
