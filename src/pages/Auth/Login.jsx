@@ -17,7 +17,7 @@ import { useAuth } from "../../context/AuthProvider";
 import { auth } from "../../firebase.config";
 
 export default function Login() {
-  const { setIsLogin, isLogin } = useAuth();
+  const { setIsLogin, isLogin, userSignin } = useAuth();
   const [userResponseData, setuserResponseData] = useState({});
 
   const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +57,7 @@ export default function Login() {
             // reCAPTCHA solved, allow signInWithPhoneNumber.
             onSignin();
           },
-          "expired-callback": () => {},
+          "expired-callback": () => { },
         },
         auth
       );
@@ -110,16 +110,23 @@ export default function Login() {
   // FORM SUBMITION
   const onSubmit = (data) => {
     data.phone = `+${data.phone}`;
-    apiUserLogin(data)
-      .then((res) => {
-        setuserResponseData(res?.data);
-        onSignin(data);
+    const appVerifier = window.recaptchaVerifier;
+
+    userSignin(data.phone, appVerifier)
+      .then(res => {
+
       })
-      .catch((err) => {
-        if (err) {
-          toast.error("Your credentials is wrong! please try again.");
-        }
-      });
+
+    // apiUserLogin(data)
+    //   .then((res) => {
+    //     setuserResponseData(res?.data);
+    //     onSignin(data);
+    //   })
+    //   .catch((err) => {
+    //     if (err) {
+    //       toast.error("Your credentials is wrong! please try again.");
+    //     }
+    //   });
   };
 
   const submitRecoveryMail = () => {
@@ -241,9 +248,8 @@ export default function Login() {
                           {...register("phone", {
                             required: "* Phone is required!",
                           })}
-                          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black ${
-                            errors?.phone && "border border-red-600"
-                          }`}
+                          className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black ${errors?.phone && "border border-red-600"
+                            }`}
                           step="any"
                           placeholder={"+91 ___"}
                           type="number"
@@ -269,21 +275,18 @@ export default function Login() {
                             name="password"
                             type={`${isPassRevealed ? "text" : "password"}`}
                             placeholder="password"
-                            className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${
-                              errors?.password && "border border-red-600"
-                            }`}
+                            className={`outline-none formGlassInput py-2 px-5 text-black w-full placeholder:text-black  ${errors?.password && "border border-red-600"
+                              }`}
                           />
                           <RiEyeCloseLine
                             onClick={() => setIsPassRevealed(!isPassRevealed)}
-                            className={`${
-                              isPassRevealed ? "hidden" : "block"
-                            } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
+                            className={`${isPassRevealed ? "hidden" : "block"
+                              } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
                           />
                           <RiEyeFill
                             onClick={() => setIsPassRevealed(!isPassRevealed)}
-                            className={`${
-                              !isPassRevealed ? "hidden" : "block"
-                            } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
+                            className={`${!isPassRevealed ? "hidden" : "block"
+                              } mt-0.5 absolute right-4 top-1/2 -translate-y-1.5 text-black z-40 cursor-pointer`}
                           />
                         </span>
                         {errors?.password && (

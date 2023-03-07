@@ -9,7 +9,7 @@ import ResponsiveNavLinks from "./ResponsiveNavLinks";
 
 export default function Header() {
   const { isLogin, setIsLogin } = useAuth();
-const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const [loginPopup, setLoginPopup] = useState(false);
 
@@ -17,10 +17,10 @@ const navigate = useNavigate()
   const [responsiveTogleIsOpened, setResponsiveTogleIsOpened] = useState(false);
 
 
-  const handleLogout = () => {
-    setIsLogin(false);
-    localStorage.removeItem('data')
-  };
+  // const handleLogout = () => {
+  //   setIsLogin(false);
+  //   localStorage.removeItem('data')
+  // };
 
   const handleResponsiveToggleNav = () => {
     setResponsiveTogleIsOpened(!responsiveTogleIsOpened);
@@ -68,8 +68,8 @@ const navigate = useNavigate()
             <div className="w-full mb-6">
               {!isLogin ? (
                 <div className="flex justify-around items-center">
-                  <TransparentBgButton handler={() => {navigate('/registration')}} title={"Sign Up"} />
-                  <WhiteNewmorfButton handler={() => {navigate('/login')}} title={"Login"} />
+                  <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
+                  <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
                 </div>
               ) : (
                 <div className="w-full flex justify-between">
@@ -102,8 +102,8 @@ const navigate = useNavigate()
         {!isLogin ? (
           <div className="hidden md:block">
             {/* LOGIN AND SIGNUP BUTTONS  */}
-            <TransparentBgButton handler={() => {navigate('/registration')}} title={"Sign Up"} />
-            <WhiteNewmorfButton handler={() => {navigate('/login')}} title={"Login"} />
+            <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
+            <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
           </div>
         ) : (
           <div className="relative hidden md:block">
@@ -152,7 +152,7 @@ const navigate = useNavigate()
                     <div>
                       <button
                         title={`logout`}
-                        onClick={handleLogout}
+                        // onClick={handleLogout}
                         className="px-7 py-3 w-full userNavLink block font-semibold text-right text-primaryPurple"
                       >
                         Log out
