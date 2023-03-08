@@ -39,7 +39,7 @@ export default function Nav() {
     document.querySelector("html").setAttribute("data-theme", theme);
   }, [theme]);
   return (
-    <div className="navbar bg-base-300">
+    <div className="navbar bg-white">
       <div className="flex-1"></div>
       <div className="flex-none gap-2">
         <div className="form-control">

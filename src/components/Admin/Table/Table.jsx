@@ -30,7 +30,7 @@ export default function Table({
           {!isLoading ? (
             rows.length > 0 ? (
               rows.map((data, i) => (
-                <tr key={i}>
+                <tr className="my-10 py-10" key={i}>
                   <th>{i + 1}</th>
 
                   {cols.map((col, j) => (

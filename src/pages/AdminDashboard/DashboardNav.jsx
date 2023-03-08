@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { AiOutlineUser } from "react-icons/ai";
-import { FiShoppingCart } from "react-icons/fi";
-import { RiCoupon5Line } from "react-icons/ri";
 import { CiCoffeeBean } from "react-icons/ci";
-import { HiMenuAlt3 } from "react-icons/hi";
 import { FaCity, FaProjectDiagram, FaUsers } from "react-icons/fa";
+import { FiShoppingCart } from "react-icons/fi";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { RiCoupon5Line } from "react-icons/ri";
 import { SiBrandfolder } from "react-icons/si";
 import { TbReportAnalytics } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
@@ -72,38 +72,59 @@ const DashboardNav = () => {
 
   return (
     <aside
-      className={`bg-primary overflow-hidden h-full ${open ? "w-72" : "w-16"
-        } duration-500 px-3 text-primary-content`}
+      className={`relative h-screen ${
+        open ? "w-[300px]" : "w-[80px]"
+      } rounded-r-[10px] box-content border-l-[5px] border-[#0145FE] transition-all duration-500 bg-[#0145FE] text-white overflow-hidden`}
     >
-      <div className="py-3 flex justify-end">
+      <div
+        className={`py-3 flex ${open?"justify-between":"justify-center"} pr-3 items-center bg-[#0145FE] z-50 `}
+      >
+        <h2
+          className={`text-2xl font-semibold transition-all inline duration-500  ${
+            open ? "block" : "hidden"
+          }`}
+        >
+          Bike Fixup
+        </h2>
         <HiMenuAlt3
           size={26}
-          className="cursor-pointer"
+          className={`cursor-pointer z-50  transition-all duration-500 rotate-180`}
           onClick={() => setOpen(!open)}
         />
       </div>
-      <div className="mt-4 flex flex-col gap-4 relative">
+      <ul
+        className={`top-0 left-0 w-full pl-[5px] overflow-y-auto h-full navUl z-20`}
+      >
         {menus?.map((menu) => (
-          <NavLink
-            key={menu.id}
-            to={menu?.link}
-            className={({ isActive }) =>
-              `group flex items-center text-sm gap-3.5 font-medium p-2 hover:bg-primary-content hover:text-primary ${isActive && window.location.pathname !== initialPath
-                ? "bg-secondary"
-                : undefined
-              } rounded-box`
-            }
-          >
-            <div className="text-xl">{menu?.icon}</div>
-            <h2
-              className={`whitespace-pre duration-500  ${!open && "opacity-0 translate-x-28 overflow-hidden"
-                }`}
+          <li className="relative w-full">
+            <NavLink
+              key={menu.id}
+              to={menu?.link}
+              className={({ isActive }) =>
+                `mt-3 w-full h-full flex justify-start items-center rounded-l-2xl overflow-hidden ${
+                  isActive
+                    ? "bg-white text-black navActive"
+                    : "bg-[#0145FE] text-white navInactive"
+                }`
+              }
             >
-              {menu?.name}
-            </h2>
-          </NavLink>
+              <b className="navCarvedShape absolute -top-[20px] h-[20px] w-full bg-white"></b>
+              <b className="navCarvedShape absolute -bottom-[20px] h-[20px] w-full bg-white"></b>
+
+              <div className="text-xl relative flex leading-[60px] min-w-[60px] text-center h-[60px] justify-center items-center">
+                {menu?.icon}
+              </div>
+              <h2
+                className={`relative block leading-[60px] min-w-[60px] text-center h-[60px] whitespace-pre duration-500 ${
+                  !open && "opacity-0 translate-x-28 overflow-hidden"
+                }`}
+              >
+                {menu?.name}
+              </h2>
+            </NavLink>
+          </li>
         ))}
-      </div>
+      </ul>
     </aside>
   );
 };
