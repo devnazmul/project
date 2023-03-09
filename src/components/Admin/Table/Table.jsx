@@ -13,50 +13,60 @@ export default function Table({
   handleView,
   handleEdit,
   handleDelete,
+  setPageNo,
+  totalData,
 }) {
   return (
-    <div className="overflow-x-auto">
-      <table className="table table-compact w-full">
+    <div className="overflow-x-auto w-full">
+      <table className="table w-full">
         <thead>
-          <tr>
-            <th></th>
+          <tr className="">
+            <th className="1/12"></th>
             {cols.map((th, i) => (
               <th key={i}>{th}</th>
             ))}
-            <th className="text-center">Options</th>
+            <th className="">Options</th>
           </tr>
         </thead>
         <tbody>
           {!isLoading ? (
             rows.length > 0 ? (
               rows.map((data, i) => (
-                <tr className="my-10 py-10" key={i}>
-                  <th>{i + 1}</th>
+                <tr
+                  className="hover:bg-[#0145FE] group hover:text-white tableRowAdmin hover:overflow-hidden"
+                  key={i}
+                >
+                  <th className="bg-white group-hover:bg-[#0145FE] w-[70px] px-2">
+                    {i + 1}
+                  </th>
 
                   {cols.map((col, j) => (
-                    <td key={j}>{data[col]}</td>
+                    <td className="bg-transparent h-full" key={j}>
+                      {data[col]}
+                    </td>
                   ))}
-                  <td className="flex justify-evenly">
+
+                  <td className="bg-transparent h-full w-1/12">
                     <button
                       onClick={() => handleView(data?.id)}
                       title="details"
-                      className="btn-secondary p-2 rounded-full hover:btn-secondary-focus"
+                      className="bg-[#fe7b01] p-2 rounded-full hover:btn-secondary-focus"
                     >
-                      <AiOutlineEye className="text-md" />
+                      <AiOutlineEye className="text-lg text-white" />
                     </button>
                     <button
                       onClick={() => handleEdit(data?.id)}
                       title="edit"
-                      className="btn-primary p-2 rounded-full hover:btn-primary-focus"
+                      className="bg-[#01fe6a] p-2 rounded-full hover:btn-primary-focus ml-2"
                     >
-                      <FiEdit className="text-md" />
+                      <FiEdit className="text-lg text-white" />
                     </button>
                     <button
                       onClick={() => handleDelete(data?.id)}
                       title="delete"
-                      className="btn-error p-2 rounded-full hover:bg-opacity-80"
+                      className="bg-[#fe0101] p-2 rounded-full hover:bg-opacity-80 ml-2"
                     >
-                      <MdDelete className="text-md" />
+                      <MdDelete className="text-lg text-white" />
                     </button>
                   </td>
                 </tr>
@@ -98,9 +108,9 @@ export default function Table({
           </tr>
         </tfoot>
       </table>
-
-      <div className="py-2 px-2 flex w-full justify-end items-center gap-2">
+      <div className="py-2 px-2 flex w-full flex-col justify-start items-start gap-2 mt-5">
         <label htmlFor="perPage">per page:</label>
+   
         <select
           id="perPage"
           name="perPage"

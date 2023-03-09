@@ -18,7 +18,7 @@ export default function AdminDashboard() {
       {isLogin && (
         <section className="flex flex-row h-screen">
           <DashboardNav />
-          <section className="w-full bg-base-100 h-screen overflow-y-scroll">
+          <section className="w-full bg-base-100 h-screen">
             <div className="w-full px-5">
               <Outlet />
             </div>

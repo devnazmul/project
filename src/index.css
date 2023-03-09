@@ -551,3 +551,19 @@ body {
   background-color: #f5f5f5;
   border-radius: 10px;
 }
+
+.tableRowAdmin:hover {
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+/* ========================= ADMIN USER ======================= */
+.userEditPopup-content {
+  background: #fff;
+  box-shadow: 0 0 10px 2px #0144fe85;
+  width: 80%;
+  height: 600px;
+  border-radius: 10px;
+  border: 2px solid #0144fea6;
+  padding: 15px;
+}
