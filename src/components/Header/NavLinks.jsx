@@ -83,25 +83,6 @@ export default function NavLinks() {
           </NavLink>
         </li>
         <li className="mr-5">
-          <NavLink title="franchise" to={`/franchise`}>
-            {({ isActive }) => (
-              <>
-                {isActive ? (
-                  <span className=" relative flex flex-col text-primaryPurple font-semibold justify-center items-center">
-                    Franchise
-                    <span className="absolute block bg-primaryPurple w-7 h-[3px] -bottom-[6px]"></span>
-                  </span>
-                ) : (
-                  <span className=" flex flex-col justify-center items-center">
-                    Franchise
-                    <span className="block bg-transparent w-7 h-[3px] -bottom-[6px]"></span>
-                  </span>
-                )}
-              </>
-            )}
-          </NavLink>
-        </li>
-        <li className="mr-5">
           <NavLink title="career" to={`/career`}>
             {({ isActive }) => (
               <>

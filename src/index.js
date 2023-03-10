@@ -137,17 +137,13 @@ const router = createBrowserRouter([
 
 ]);
 
-// Create a client
-const queryClient = new QueryClient()
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <AllContextProvider>
-        <RouterProvider router={router} />
-      </AllContextProvider>
-    </QueryClientProvider>
+    <AllContextProvider>
+      <RouterProvider router={router} />
+    </AllContextProvider>
   </React.StrictMode>
 );
 
