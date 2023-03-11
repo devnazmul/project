@@ -8,7 +8,7 @@ import NavLinks from "./NavLinks";
 import ResponsiveNavLinks from "./ResponsiveNavLinks";
 
 export default function Header() {
-  const { isLogin, setIsLogin } = useAuth();
+  const { user, userLogOut } = useAuth();
   const navigate = useNavigate()
 
   const [loginPopup, setLoginPopup] = useState(false);
@@ -17,10 +17,12 @@ export default function Header() {
   const [responsiveTogleIsOpened, setResponsiveTogleIsOpened] = useState(false);
 
 
-  // const handleLogout = () => {
-  //   setIsLogin(false);
-  //   localStorage.removeItem('data')
-  // };
+  const handleLogout = () => {
+    userLogOut()
+      .then(() => { })
+      .catch(err => console.log(err));
+    localStorage.removeItem('data')
+  };
 
   const handleResponsiveToggleNav = () => {
     setResponsiveTogleIsOpened(!responsiveTogleIsOpened);
@@ -66,30 +68,36 @@ export default function Header() {
               } transition-all duration-300 responsiveNav absolute bg-white  w-64 top-10 px-5 py-5 rounded-lg shadow-lg z-[100] flex flex-col`}
           >
             <div className="w-full mb-6">
-              {!isLogin ? (
-                <div className="flex justify-around items-center">
-                  <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
-                  <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
-                </div>
-              ) : (
-                <div className="w-full flex justify-between">
-                  <button
-                    title={"user profile"}
-                    onClick={() => {
-                      navigate('/profile/dashboard')
-                    }}
-                    className={`w-auto h-10 flex items-center`}
-                  >
-                    <span className="flex justify-center items-center w-10 h-10 rounded-full bg-cyan-800 text-xl text-white">
-                      D
-                    </span>
-                    <span className="text-sm ml-2">Md Nazmul Islam</span>
-                  </button>
-                  <button title={"logout"} onClick={() => setIsLogin(false)}>
-                    <IoLogOutOutline className="text-primaryRed text-2xl" />
-                  </button>
-                </div>
-              )}
+              {
+                user ?
+                  (
+                    <div className="w-full flex justify-between">
+                      <button
+                        title={"user profile"}
+                        onClick={() => {
+                          navigate('/profile/dashboard')
+                        }}
+                        className={`w-auto h-10 flex items-center`}
+                      >
+                        <span className="flex justify-center items-center w-10 h-10 rounded-full bg-cyan-800 text-xl text-white">
+                          D
+                        </span>
+                        <span className="text-sm ml-2">Md Nazmul Islam</span>
+                      </button>
+                      <button type="button"
+                        onClick={handleLogout}>
+                        title={"logout"}
+                        <IoLogOutOutline className="text-primaryRed text-2xl" />
+                      </button>
+                    </div>
+                  ) :
+                  (
+                    <div className="flex justify-around items-center">
+                      <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
+                      <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
+                    </div>
+                  )
+              }
             </div>
 
             {/* RESPONSIVE NAVLINKS  */}
@@ -99,71 +107,76 @@ export default function Header() {
           {/* RESPONSIVE NAV END  */}
         </div>
 
-        {!isLogin ? (
-          <div className="hidden md:block">
-            {/* LOGIN AND SIGNUP BUTTONS  */}
-            <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
-            <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
-          </div>
-        ) : (
-          <div className="relative hidden md:block">
-            <button
-              title={`profile`}
-              onClick={() => {
-                setIsNavOpened(!isNavOpened);
-              }}
-              className={`w-12 h-12 rounded-full bg-cyan-800`}
-            >
-              <span className="text-xl text-white">D</span>
-            </button>
+        {
+          user ?
+            (
+              <div className="relative hidden md:block">
+                <button
+                  title={`profile`}
+                  onClick={() => {
+                    setIsNavOpened(!isNavOpened);
+                  }}
+                  className={`w-12 h-12 rounded-full bg-cyan-800`}
+                >
+                  <span className="text-xl text-white">D</span>
+                </button>
 
-            {isNavOpened && (
-              <div className={`userNav w-[250px] absolute right-0 z-50`}>
-                <ul>
-                  <li>
-                    <NavLink
-                      title="Profile"
-                      className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                      to={"/profile/dashboard"}
-                    >
-                      Profile
-                    </NavLink>
-                    <NavLink
-                      title="My Booking"
-                      className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                      to={"/profile/my_bookings"}
-                    >
-                      My Booking
-                    </NavLink>
-                    <NavLink
-                      title="My Vehicles"
-                      className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                      to={"/profile/my_vehicles"}
-                    >
-                      My Vehicles
-                    </NavLink>
-                    <NavLink
-                      title="Become Partner"
-                      className={`px-7 py-3 w-full userNavLink block font-semibold`}
-                      to={"/profile/become_partner"}
-                    >
-                      Become Partner
-                    </NavLink>
-                    <div>
-                      <button
-                        title={`logout`}
-                        // onClick={handleLogout}
-                        className="px-7 py-3 w-full userNavLink block font-semibold text-right text-primaryPurple"
-                      >
-                        Log out
-                      </button>
-                    </div>
-                  </li>
-                </ul>
+                {isNavOpened && (
+                  <div className={`userNav w-[250px] absolute right-0 z-50`}>
+                    <ul>
+                      <li>
+                        <NavLink
+                          title="Profile"
+                          className={`px-7 py-3 w-full userNavLink block font-semibold`}
+                          to={"/profile/dashboard"}
+                        >
+                          Profile
+                        </NavLink>
+                        <NavLink
+                          title="My Booking"
+                          className={`px-7 py-3 w-full userNavLink block font-semibold`}
+                          to={"/profile/my_bookings"}
+                        >
+                          My Booking
+                        </NavLink>
+                        <NavLink
+                          title="My Vehicles"
+                          className={`px-7 py-3 w-full userNavLink block font-semibold`}
+                          to={"/profile/my_vehicles"}
+                        >
+                          My Vehicles
+                        </NavLink>
+                        <NavLink
+                          title="Become Partner"
+                          className={`px-7 py-3 w-full userNavLink block font-semibold`}
+                          to={"/profile/become_partner"}
+                        >
+                          Become Partner
+                        </NavLink>
+                        <div>
+                          <button
+                            title={`logout`}
+                            onClick={handleLogout}
+                            className="px-7 py-3 w-full userNavLink block font-semibold text-right text-primaryPurple"
+                          >
+                            Log out
+                          </button>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                )}
               </div>
-            )}
-          </div>
-        )}
+            )
+            :
+            (
+              <div className="hidden md:block">
+                {/* LOGIN AND SIGNUP BUTTONS  */}
+                <TransparentBgButton handler={() => { navigate('/registration') }} title={"Sign Up"} />
+                <WhiteNewmorfButton handler={() => { navigate('/login') }} title={"Login"} />
+              </div>
+            )
+        }
       </div>
       {/* NAV LINKS  */}
       <NavLinks />

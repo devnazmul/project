@@ -2,16 +2,17 @@ import { Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/AuthProvider";
 
 export const ProtectedRoute = ({ children }) => {
-  const { isLogin } = useAuth();
-  console.log(isLogin)
   const location = useLocation();
-  return (
-    <>
-      {!isLogin ? (
-        <Navigate to={"/login"} state={{ from: location }} replace />
-      ) : (
-        children
-      )}
-    </>
-  );
+  const { user, isLoading } = useAuth();
+  console.log(user);
+
+  if (isLoading) {
+    return <h1>Loading...</h1>
+  };
+
+  if (user && user.uid) {
+    return children;
+  }
+
+  return <Navigate to={"/login"} state={{ from: location }} replace />;
 };

@@ -1,6 +1,8 @@
 import axios from "axios";
 
 export const apiTokenValidation = async () => {
+    const data = JSON.parse(localStorage.getItem('data'))
+    console.log(data?.token);
     const config = {
         headers: {
             "Content-Type": "application/json",
@@ -9,9 +11,13 @@ export const apiTokenValidation = async () => {
         },
     };
     return await axios.get('/auth/checkJWTvalidation', { name: JSON.parse(localStorage.getItem('data')).user?.name }, config)
-        .then(res => {
-            return res;
-        })
+    // .then(res => {
+    //     return res;
+    // })
+    // return await axios.get('/auth/checkJWTvalidation', { name: JSON.parse(localStorage.getItem('data')).user?.name }, config)
+    //     .then(res => {
+    //         return res;
+    //     })
 }
 
 export const apiUserRegistration = async (data) => {
