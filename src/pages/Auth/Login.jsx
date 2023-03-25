@@ -109,29 +109,12 @@ export default function Login() {
     setOtp(value);
   }
 
-  // FORM SUBMITION
-  // const onSubmit = async (data) => {
-  //   console.log(data);
-  //   const { email, password } = data;
-
-
-  //   userSignin(email, password)
-  //     .then(res => {
-  //       const user = res.user;
-  //       console.log(user);
-  //       if (user) {
-  //         setIsLogin(true);
-  //         navigate("/");
-  //         localStorage.setItem("data", JSON.stringify(user));
-  //       }
-  //     }).catch(err => console.log(err));
-  // }
-
-
+  //user form submit
   const onSubmit = (data) => {
     data.phone = `+${data.phone}`;
     const { phone, password } = data;
 
+    // userLogin 
     axios.post("https://website.bikefixup.com/api/auth/login", {
       phone,
       password
@@ -143,7 +126,7 @@ export default function Login() {
         setToken(token);
         const user = res.data.user;
         setUser(user)
-      })
+      }).catch(err => console.log(err));
   }
 
   const submitRecoveryMail = () => {

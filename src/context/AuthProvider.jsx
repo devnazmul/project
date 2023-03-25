@@ -38,37 +38,13 @@ export const AuthProvider = ({ children }) => {
     return signOut(auth);
   }
 
-
-  // useEffect(() => {
-  //   console.log({ isLogin });
-  //   const intervalId = setInterval(async () => {
-  //     // console.log({ isLogin });
-  //     // isLogin === false && localStorage.removeItem('data')
-  //     // console.log({ isLogin });
-
-  //     await apiTokenValidation()
-  //       .then((res) => {
-  //         console.log({ auth: res });
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-
-  //         setIsLogin(false);
-  //         localStorage.removeItem("data");
-  //       });
-  //   }, 5000);
-
-  //   return () => clearInterval(intervalId);
-
-  // }, []);
-
   console.log(user);
 
   // components will unmount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("inside auth state change", currentUser);
-      // setUser(currentUser);
+      setUser(currentUser);
       setIsLoading(false);
     })
     return () => {
