@@ -17,6 +17,7 @@ const AUTH_CONTEXT = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [token, setToken] = useState('');
 
 
   // create new user 
@@ -61,12 +62,13 @@ export const AuthProvider = ({ children }) => {
 
   // }, []);
 
+  console.log(user);
 
   // components will unmount
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       console.log("inside auth state change", currentUser);
-      setUser(currentUser);
+      // setUser(currentUser);
       setIsLoading(false);
     })
     return () => {
@@ -79,10 +81,13 @@ export const AuthProvider = ({ children }) => {
   // auth information 
   const authInfo = {
     user,
+    setUser,
     isLoading,
     createUser,
     userSignin,
-    userLogOut
+    userLogOut,
+    token,
+    setToken
   };
 
   return (

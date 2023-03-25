@@ -1,3 +1,4 @@
+import axios from "axios";
 import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
 import React, { useState } from "react";
 import { useEffect } from "react";
@@ -19,7 +20,7 @@ import { auth } from "../../firebase.config";
 
 
 export default function Login() {
-  const { userSignin } = useAuth();
+  const { userSignin, token, setToken, setUser } = useAuth();
   const [userResponseData, setuserResponseData] = useState({});
 
   const [isLoading, setIsLoading] = useState(false);
@@ -129,20 +130,20 @@ export default function Login() {
 
   const onSubmit = (data) => {
     data.phone = `+${data.phone}`;
+    const { phone, password } = data;
 
-    apiUserLogin(data)
-      .then((res) => {
+    axios.post("https://website.bikefixup.com/api/auth/login", {
+      phone,
+      password
+    })
+      .then(res => {
         console.log(res.data)
-        setuserResponseData(res?.data);
-        localStorage.setItem("data", JSON.stringify(res.data));
-        // onSignin(data);
-        navigate(from, { replace: true });
+        const token = res.data.access_token;
+        localStorage.setItem('access_token', token);
+        setToken(token);
+        const user = res.data.user;
+        setUser(user)
       })
-      .catch((err) => {
-        if (err) {
-          toast.error("Your credentials is wrong! please try again.");
-        }
-      });
   }
 
   const submitRecoveryMail = () => {
@@ -150,7 +151,11 @@ export default function Login() {
   }
 
 
-
+  useEffect(() => {
+    if (token) {
+      navigate(from, { replace: true });
+    }
+  }, [navigate]);
 
   return (
 

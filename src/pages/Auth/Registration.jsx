@@ -108,23 +108,24 @@ export default function Registration() {
   };
 
   const onSignup = (data) => {
-    setIsOTPLoading(true);
+    console.log(data)
+    // setIsOTPLoading(true);
     onCapchaVeryfy();
 
     const appVerifier = window.recaptchaVerifier;
 
-    createUser(auth, data.phone, appVerifier)
-      .then((confirmationResult) => {
-        window.confirmationResult = confirmationResult;
-        setIsOTPLoading(false);
-        setOTPPopup(true);
-        toast.success("The OTP is send.");
-      })
-      .catch((error) => {
-        console.log({ error });
-        toast.error("The OTP is not send! Try again.");
-      });
-    setIsOTPLoading(false);
+    /*  createUser(data.phone, appVerifier)
+       .then((confirmationResult) => {
+         window.confirmationResult = confirmationResult;
+         // setIsOTPLoading(false);
+         // setOTPPopup(true);
+         toast.success("The OTP is send.");
+       })
+       .catch((error) => {
+         console.log({ error });
+         toast.error("The OTP is not send! Try again.");
+       });
+     // setIsOTPLoading(false); */
   };
 
   const onOTVerify = () => {
@@ -176,12 +177,12 @@ export default function Registration() {
   // };
 
   const onSubmit = (data) => {
-    console.log({ data });
+    // console.log(data);
     data.phone = `+${data.phone}`;
     data.active_state = 1;
     data.latitude = position?.lat;
     data.longitude = position?.lng;
-    setFormData(data);
+    // setFormData(data);
     onSignup(data);
   };
 
