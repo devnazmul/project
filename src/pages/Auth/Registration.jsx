@@ -1,3 +1,4 @@
+import axios from "axios";
 import { RecaptchaVerifier } from "firebase/auth";
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -66,19 +67,20 @@ export default function Registration() {
     navigate(from, { replace: true });
   }
 
+  // getting all state
   useEffect(() => {
     getGeoLocation();
     setIsLoadingData(true);
-    apiGetAllStates()
-      .then((res) => {
-        // console.log(res);
-        setAllStates(res.data.data);
-        setIsLoadingData(false);
+
+    axios.get("https://website.bikefixup.com/api/states")
+      .then(res => {
+        const allState = res.data.states
+        // console.log(allState);
+        const helloState = allState.map(state => state.name)
+        setAllStates(helloState);
       })
-      .catch((err) => {
-        toast.error("something was wrong");
-      });
   }, []);
+  console.log(allStates);
 
   useEffect(() => {
     if (selectedState > 0) {
@@ -164,17 +166,6 @@ export default function Registration() {
     }
   };
 
-  // const onSubmit = (data) => {
-  //   console.log(data);
-  //   const { email, password } = data;
-
-  //   createUser(email, password)
-  //     .then(res => {
-  //       const user = res.user;
-  //       console.log(user);
-  //     }).catch(err => { console.log(err) });
-
-  // };
 
   const onSubmit = (data) => {
     // console.log(data);
@@ -334,7 +325,7 @@ export default function Registration() {
                         <option value="">Select a state</option>
                         {allStates?.map((opt, i) => (
                           <option key={i} value={opt.id}>
-                            {opt.name}
+                            {opt}
                           </option>
                         ))}
                       </select>
