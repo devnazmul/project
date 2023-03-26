@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import AllContextProvider from './context/AllContextProvider';
 import './index.css';
@@ -20,7 +19,7 @@ import Franchise from './pages/Franchise';
 import Home from './pages/Home';
 import Membership from './pages/Membership';
 import Partners from './pages/Partners';
-import { ProtectedRoute } from './pages/ProtectedRoute/ProtectedRoute';
+import Services from './pages/Services';
 import BecomePartner from './pages/UserProfile/BecomePartner';
 import MyBooking from './pages/UserProfile/MyBooking';
 import MyVehicles from './pages/UserProfile/MyVehicles';
@@ -134,7 +133,17 @@ const router = createBrowserRouter([
       },
     ]
   },
-
+  {
+    path: "/sevices/:id",
+    element: <Services />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        index: '',
+        element: <Services />
+      },
+    ]
+  },
 ]);
 
 

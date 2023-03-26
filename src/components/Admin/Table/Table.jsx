@@ -116,8 +116,7 @@ export default function Table({
           name="perPage"
           className="select select-bordered input-sm w-32 py-2 "
           onChange={(e) => setPerPage(e.target.value)}
-          defaultValue={perPage}
-        >
+          defaultValue={perPage} >
           <option value={1}>1</option>
           <option value={5}>5</option>
           <option value={10}>10</option>
