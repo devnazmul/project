@@ -4,7 +4,6 @@ import {
   signOut
 } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
-import { apiTokenValidation } from "../apis/auth";
 import { auth } from "../firebase.config";
 
 
@@ -18,7 +17,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState('');
-
+  const [isLogin, setIsLogin] = useState(true);
+  
 
   // create new user 
   const createUser = (number, appVerifier) => {
@@ -56,6 +56,7 @@ export const AuthProvider = ({ children }) => {
 
   // auth information 
   const authInfo = {
+    isLogin,
     user,
     setUser,
     isLoading,

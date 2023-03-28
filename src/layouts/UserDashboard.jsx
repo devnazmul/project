@@ -5,18 +5,25 @@ import elememt2 from "../assets/profileElement2.svg";
 import { useAuth } from "../context/AuthProvider";
 export default function UserDashboard() {
   
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const { isLogin } = useAuth();
 
-  useEffect(() => {
-    if (window.location.pathname === "/profile" && isLogin) {
-      navigate("/profile/dashboard");
-    } else {
-      localStorage.removeItem("data");
-      navigate("/login");
-    }
-  }, [window.location.pathname]);
+  // useEffect(() => {
+  //   if (window.location.pathname === "/profile" && isLogin) {
+  //     navigate("/profile/dashboard");
+  //   } else {
+  //     localStorage.removeItem("data");
+  //     navigate("/login");
+  //   }
+  // }, [window.location.pathname]);
 
+  const navigate = useNavigate();
+  useEffect(() => {
+    // REDIRECT TO THE ADMIN DASHBOARD
+    if (window.location.pathname === "/profile") {
+      navigate("/profile/dashboard");
+    }
+  }, []);
   return (
     <>
       {isLogin && (
